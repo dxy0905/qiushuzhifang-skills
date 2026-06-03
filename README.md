@@ -19,3 +19,7 @@ hermes skills install https://raw.githubusercontent.com/dxy0905/qiushuzhifang-sk
 **核心口号：** 以数理为基，以智算为翼，解万策之题，汇邱氏之智
 **使命：** 让万物具备话语权，让普通人具备公信力
 **愿景：** 打造立足福建、辐射全国、影响海丝之路的国际化数字科技集团
+
+---
+
+© 2026 邱数智方（福建）科技股份有限公司

@@ -111,7 +111,7 @@
 <!-- 2.同意 -->
 <div class="agree-box" id="step2" style="display:none">
   <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
-  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。医疗保障¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
 </div>
 
 <!-- 3.首次余额 -->
@@ -135,7 +135,7 @@
 <div class="card" id="step4" style="display:none">
   <div class="card-title">📋 五账户分配方案</div>
   <div style="font-size:11px;color:#86868b;margin-bottom:4px">可拖动滑块微调比例</div>
-  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 看病救急：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
+  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 医疗保障：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
   <div style="margin-top:6px">
     <button class="btn-primary" onclick="confirmPlan()">确认方案，开始执行</button>
   </div>
@@ -161,7 +161,7 @@
 const BIN_DB={"622202":"工商银行","622208":"工商银行","620058":"工商银行","621226":"工商银行","622588":"招商银行","622575":"招商银行","622609":"招商银行","621700":"建设银行","621081":"建设银行","622700":"建设银行","622848":"农业银行","622845":"农业银行","621336":"农业银行","601382":"中国银行","621661":"中国银行","621666":"中国银行","622260":"交通银行","622258":"交通银行","621098":"邮储银行","622150":"邮储银行","622151":"邮储银行","622155":"浦发银行","622156":"浦发银行","622262":"中信银行","622659":"中信银行","622630":"光大银行","621488":"光大银行","622188":"民生银行","622619":"民生银行","622632":"华夏银行","622636":"华夏银行","622328":"兴业银行","621528":"兴业银行","622556":"广发银行","622557":"广发银行","622312":"平安银行","621626":"平安银行"};
 function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银行'}
 
-// 四个账户（看病救急单独处理）
+// 四个账户（医疗保障单独处理）
 const ACCOUNTS=[
   {key:'living',name:'日常支出',icon:'🏠',pct:60,color:'#fbbf24',type:'流动资金',typeClass:'type-free',desc:'日常生活基本开支'},
   {key:'edu',name:'教育储备',icon:'🎓',pct:15,color:'#10b981',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·提前支取损失利息'},
@@ -328,7 +328,7 @@ function adjust(key,val){
 <!-- 2.同意 -->
 <div class="agree-box" id="step2" style="display:none">
   <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
-  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。医疗保障¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
 </div>
 
 <!-- 3.首次余额 -->
@@ -352,7 +352,7 @@ function adjust(key,val){
 <div class="card" id="step4" style="display:none">
   <div class="card-title">📋 五账户分配方案</div>
   <div style="font-size:11px;color:#86868b;margin-bottom:4px">可拖动滑块微调比例</div>
-  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 看病救急：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
+  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 医疗保障：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
   <div style="margin-top:6px">
     <button class="btn-primary" onclick="confirmPlan()">确认方案，开始执行</button>
   </div>
@@ -378,7 +378,7 @@ function adjust(key,val){
 const BIN_DB={"622202":"工商银行","622208":"工商银行","620058":"工商银行","621226":"工商银行","622588":"招商银行","622575":"招商银行","622609":"招商银行","621700":"建设银行","621081":"建设银行","622700":"建设银行","622848":"农业银行","622845":"农业银行","621336":"农业银行","601382":"中国银行","621661":"中国银行","621666":"中国银行","622260":"交通银行","622258":"交通银行","621098":"邮储银行","622150":"邮储银行","622151":"邮储银行","622155":"浦发银行","622156":"浦发银行","622262":"中信银行","622659":"中信银行","622630":"光大银行","621488":"光大银行","622188":"民生银行","622619":"民生银行","622632":"华夏银行","622636":"华夏银行","622328":"兴业银行","621528":"兴业银行","622556":"广发银行","622557":"广发银行","622312":"平安银行","621626":"平安银行"};
 function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银行'}
 
-// 四个账户（看病救急单独处理）
+// 四个账户（医疗保障单独处理）
 const ACCOUNTS=[
   {key:'living',name:'日常支出',icon:'🏠',pct:60,color:'#fbbf24',type:'流动资金',typeClass:'type-free',desc:'日常生活基本开支'},
   {key:'edu',name:'教育储备',icon:'🎓',pct:15,color:'#10b981',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·提前支取损失利息'},

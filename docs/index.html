@@ -199,6 +199,223 @@ function distribute(){
 
 function adjust(key,val){
   st.ratios[key]=val;
+  const others=ACCOUNTS.filter(a=>a.key!==key&&a.key!=='living');
+  const rem=40-val;
+  const tt=others.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
+  if(tt>0){
+    let left=rem;
+    const filtered=others.filter(a=>{
+      const r=Math.round(rem*(st.ratios[a.key]||a.pct)/tt);
+      const minV=a.key==='edu'?10:5;
+      if(r<minV){st.ratios[a.key]=minV;left-=minV;return false}
+      return true
+    });
+    const ft=filtered.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
+    filtered.forEach(a=>st.ratios[a.key]=Math.round(left*(st.ratios[a.key]||a.pct)/ft))
+  }
+  st.ratios.living=60;
+  sv();refresh();
+}
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a237e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>五福管家</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1d1d1f;padding-bottom:70px}
+  .header{background:linear-gradient(135deg,#1a237e,#283593);padding:48px 16px 14px;text-align:center;color:#fff}
+  .header-icon{font-size:34px}
+  .header h1{font-size:17px;font-weight:700;letter-spacing:2px}
+  .header p{font-size:11px;color:rgba(255,255,255,0.7)}
+  .steps{display:flex;margin:8px 12px 0;gap:4px}
+  .step{flex:1;padding:6px 4px;text-align:center;border-radius:6px;font-size:10px;font-weight:500}
+  .step-done{background:#d1fae5;color:#065f46}
+  .step-current{background:#dbeafe;color:#1e40af;font-weight:700}
+  .step-todo{background:#f3f4f6;color:#9ca3af}
+  .card{background:#fff;border-radius:10px;margin:6px 12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+  .card-title{font-size:14px;font-weight:600;color:#4b5563;margin-bottom:8px}
+  
+  .scan-area{text-align:center;padding:18px;background:#f8fafc;border:2px dashed #cbd5e1;border-radius:10px;margin-bottom:6px;cursor:pointer}
+  .scan-icon{font-size:44px}
+  .scan-text{font-size:14px;color:#4b5563;font-weight:500}
+  .scan-input{display:none}
+  .card-preview{display:none;text-align:center;padding:8px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;margin-top:4px}
+  .card-preview.show{display:block}
+  .card-num{font-size:16px;font-weight:700;letter-spacing:2px}
+  .card-bank{font-size:12px;color:#10b981;font-weight:500}
+  .manual-link{text-align:center;font-size:11px;color:#2563eb;cursor:pointer;margin-top:4px}
+  .manual-input{display:none;margin-top:4px}
+  .manual-input.show{display:flex;gap:4px}
+  .manual-input input{flex:1;padding:8px;border:1px solid #e5e5ea;border-radius:6px;font-size:14px;outline:none}
+  .manual-input button{padding:8px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+  
+  .agree-box{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 10px;margin:6px 12px;font-size:12px;color:#92400e;line-height:1.5}
+  .agree-box label{display:flex;align-items:flex-start;gap:6px;cursor:pointer}
+  .agree-box input[type="checkbox"]{margin-top:2px;width:15px;height:15px}
+  
+  .balance-row{display:flex;gap:6px}
+  .balance-row input{flex:1;padding:10px;border:1px solid #e5e5ea;border-radius:6px;font-size:16px;text-align:center;outline:none}
+  .balance-row input:focus{border-color:#2563eb}
+  .balance-row button{padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer}
+  
+  .acc-item{display:flex;align-items:center;padding:6px 0;border-bottom:1px solid #f3f4f6}
+  .acc-item:last-child{border-bottom:none}
+  .acc-icon{font-size:18px;width:26px}
+  .acc-info{flex:1}
+  .acc-name{font-size:12px;font-weight:600}
+  .acc-name .pct{color:#86868b;font-weight:400;font-size:10px}
+  .acc-desc{font-size:10px;color:#86868b}
+  .acc-right{text-align:right}
+  .acc-amount{font-size:13px;font-weight:600}
+  .acc-type{font-size:9px;padding:1px 4px;border-radius:3px;display:inline-block}
+  .type-free{background:#fef3c7;color:#92400e}
+  .type-lock{background:#dbeafe;color:#1e40af}
+  .acc-bar{height:3px;background:#f2f2f7;border-radius:2px;overflow:hidden;margin-top:2px}
+  .acc-fill{height:100%;border-radius:2px}
+  
+  .insure-option{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 10px;margin:6px 12px;font-size:12px}
+  .insure-option label{display:flex;align-items:center;gap:6px;cursor:pointer}
+  .insure-option input[type="checkbox"]{width:15px;height:15px}
+  
+  .btn-primary{width:100%;padding:10px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer}
+  
+  .income-section{margin-top:8px}
+  .income-row{display:flex;gap:6px;margin-bottom:4px}
+  .income-row input{flex:1;padding:8px;border:1px solid #e5e5ea;border-radius:6px;font-size:14px;outline:none}
+  .income-row button{padding:8px 16px;background:#10b981;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+  
+  .summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin:4px 0}
+  .summary-item{text-align:center;padding:6px;border-radius:6px;font-size:11px}
+  .record-item{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:11px}
+  .empty{text-align:center;color:#9ca3af;font-size:12px;padding:10px 0}
+  .footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:1px solid #e5e5ea;padding:6px 12px 10px;text-align:center;font-size:10px;color:#86868b}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">💰</div>
+  <h1>五福管家</h1>
+  <p>养成良好的资金管理习惯</p>
+</div>
+
+<div class="steps" id="stepBar"></div>
+
+<!-- 1.绑卡 -->
+<div id="step1">
+  <div class="card">
+    <div class="card-title">📇 绑定银行卡</div>
+    <div class="scan-area" onclick="document.getElementById('cameraInput').click()">
+      <div class="scan-icon">📷</div>
+      <div class="scan-text">扫描银行卡</div>
+    </div>
+    <input type="file" id="cameraInput" accept="image/*" capture="environment" class="scan-input" onchange="scanCard()">
+    <div class="card-preview" id="cardPreview" onclick="next(2)">
+      <div class="card-num" id="cardNum"></div>
+      <div class="card-bank" id="cardBank"></div>
+    </div>
+    <div class="manual-link" id="manualLink" onclick="showManual()">✏️ 手动输入卡号</div>
+    <div class="manual-input" id="manualInput">
+      <input type="text" id="cardInput" placeholder="输入银行卡号" maxlength="19">
+      <button onclick="bindCard()">确认</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2.同意 -->
+<div class="agree-box" id="step2" style="display:none">
+  <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常花销，剩余40%按比例转为短期不动产（孩子读书15%、养老钱10%、钱生钱15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入钱生钱。以后每笔收入到账自动按比例分配。</span></label>
+</div>
+
+<!-- 3.首次余额 -->
+<div class="card" id="step3" style="display:none">
+  <div class="card-title">💰 首次资金分配</div>
+  <div style="font-size:12px;color:#86868b;margin-bottom:6px">输入银行卡当前余额，系统自动分配</div>
+  <div class="balance-row">
+    <input type="number" id="balanceInput" placeholder="输入余额（元）" min="0">
+    <button onclick="distribute()">自动分配</button>
+  </div>
+  <div id="firstDist" style="margin-top:6px"></div>
+</div>
+
+<!-- 保险可选 -->
+<div class="insure-option" id="insureOpt" style="display:none">
+  <label><input type="checkbox" id="insureCheck" checked onchange="refresh()">
+  <span>✅ 参加惠民保¥69/年 + 意外险¥100/年 = <b>¥169/年</b>（中国人保央企承保，不选的¥169自动转入钱生钱）</span></label>
+</div>
+
+<!-- 4.微调确认 -->
+<div class="card" id="step4" style="display:none">
+  <div class="card-title">📋 五账户分配方案</div>
+  <div style="font-size:11px;color:#86868b;margin-bottom:4px">可拖动滑块微调比例</div>
+  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 看病救急：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
+  <div style="margin-top:6px">
+    <button class="btn-primary" onclick="confirmPlan()">确认方案，开始执行</button>
+  </div>
+</div>
+
+<!-- 5.执行 -->
+<div class="card" id="step5" style="display:none">
+  <div class="card-title">✅ 资金管理已启动</div>
+  <div id="execStatus"></div>
+  <div class="income-section">
+    <div style="font-size:12px;font-weight:600;color:#4b5563;margin-bottom:4px">📝 每笔收入到账</div>
+    <div class="income-row">
+      <input type="number" id="newIncome" placeholder="输入金额（元）">
+      <button onclick="addIncome()">自动分配</button>
+    </div>
+    <div id="incomeRecords" style="margin-top:4px"></div>
+  </div>
+</div>
+
+<div class="footer">五福管家 · 邱数智方（福建）科技股份有限公司出品 · 终身免费</div>
+
+<script>
+const BIN_DB={"622202":"工商银行","622208":"工商银行","620058":"工商银行","621226":"工商银行","622588":"招商银行","622575":"招商银行","622609":"招商银行","621700":"建设银行","621081":"建设银行","622700":"建设银行","622848":"农业银行","622845":"农业银行","621336":"农业银行","601382":"中国银行","621661":"中国银行","621666":"中国银行","622260":"交通银行","622258":"交通银行","621098":"邮储银行","622150":"邮储银行","622151":"邮储银行","622155":"浦发银行","622156":"浦发银行","622262":"中信银行","622659":"中信银行","622630":"光大银行","621488":"光大银行","622188":"民生银行","622619":"民生银行","622632":"华夏银行","622636":"华夏银行","622328":"兴业银行","621528":"兴业银行","622556":"广发银行","622557":"广发银行","622312":"平安银行","621626":"平安银行"};
+function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银行'}
+
+// 四个账户（看病救急单独处理）
+const ACCOUNTS=[
+  {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24',type:'可支配',typeClass:'type-free',desc:'吃饭坐车交水电'},
+  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
+  {key:'pension',name:'养老钱',icon:'👴',pct:10,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
+  {key:'invest',name:'钱生钱',icon:'📈',pct:15,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
+];
+
+let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":"","balance":0,"records":[],"ratios":{},"insure":true}');
+function sv(){localStorage.setItem('wf_state',JSON.stringify(st))}
+function next(s){st.step=s;sv();refresh()}
+
+function scanCard(){alert('请手动输入卡号，后续版本将支持OCR自动识别');showManual()}
+function showManual(){document.getElementById('manualInput').classList.add('show');document.getElementById('cardInput').focus()}
+
+function bindCard(){
+  let no=document.getElementById('cardInput').value.trim().replace(/\s/g,'');
+  if(no.length<16){alert('请输入正确卡号');return}
+  st.card=no;st.bank=idBank(no);next(2);
+  document.getElementById('cardPreview').classList.add('show');
+  document.getElementById('cardNum').textContent=no.replace(/(.{4})/g,'$1 ');
+  document.getElementById('cardBank').textContent='✅ '+st.bank;
+}
+
+function distribute(){
+  const v=parseFloat(document.getElementById('balanceInput').value);
+  if(!v||v<=0){alert('请输入余额');return}
+  st.balance=v;st.ratios={};
+  ACCOUNTS.forEach(a=>st.ratios[a.key]=a.pct);
+  st.insure=true;st.step=4;sv();refresh();
+  document.getElementById('insureOpt').style.display='block';
+  document.getElementById('insureCheck').checked=true;
+  const el=document.getElementById('firstDist');
+  el.innerHTML=ACCOUNTS.map(a=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0"><span>${a.icon} ${a.name}</span><span style="font-weight:600">¥${(v*a.pct/100).toFixed(0)}</span></div>`).join('');
+}
+
+function adjust(key,val){
+  st.ratios[key]=val;
   const ot=ACCOUNTS.filter(a=>a.key!==key);
   const rem=100-val;const tt=ot.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
   if(tt>0){let remaining=rem;const filtered=ot.filter(a=>{const r=Math.round(rem*(st.ratios[a.key]||a.pct)/tt);if(r<5){st.ratios[a.key]=5;remaining-=5;return false}return true});const ft=filtered.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);filtered.forEach(a=>st.ratios[a.key]=Math.round(remaining*(st.ratios[a.key]||a.pct)/ft))}
@@ -244,7 +461,7 @@ function renderAccounts(){
     </div>
     <div class="adjust-row" style="display:flex;align-items:center;gap:4px;margin:2px 0">
       <label style="font-size:10px;color:#4b5563;min-width:44px">${a.icon}</label>
-      <input type="range" min="${a.key==='edu'?10:5}" max="15" value="${p}" style="flex:1;height:3px" oninput="adjust('${a.key}',parseInt(this.value))">
+      <span style="font-size:11px;font-weight:600;color:#92400e">固定60%</span>
       <span style="font-size:11px;font-weight:600;min-width:24px;text-align:right">${p}%</span>
     </div>`;
   }).join('');

@@ -201,7 +201,7 @@ function adjust(key,val){
   st.ratios[key]=val;
   const ot=ACCOUNTS.filter(a=>a.key!==key);
   const rem=100-val;const tt=ot.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
-  if(tt>0){let remaining=rem;const filtered=ot.filter(a=>{const r=Math.round(rem*(st.ratios[a.key]||a.pct)/tt);if(r<1){st.ratios[a.key]=1;remaining-=1;return false}return true});const ft=filtered.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);filtered.forEach(a=>st.ratios[a.key]=Math.round(remaining*(st.ratios[a.key]||a.pct)/ft))}
+  if(tt>0){let remaining=rem;const filtered=ot.filter(a=>{const r=Math.round(rem*(st.ratios[a.key]||a.pct)/tt);if(r<5){st.ratios[a.key]=5;remaining-=5;return false}return true});const ft=filtered.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);filtered.forEach(a=>st.ratios[a.key]=Math.round(remaining*(st.ratios[a.key]||a.pct)/ft))}
   const sm=ACCOUNTS.reduce((s,a)=>s+(st.ratios[a.key]||0),0);
   if(sm!==100)st.ratios[ACCOUNTS[ACCOUNTS.length-1].key]+=(100-sm);
   sv();refresh();
@@ -244,7 +244,7 @@ function renderAccounts(){
     </div>
     <div class="adjust-row" style="display:flex;align-items:center;gap:4px;margin:2px 0">
       <label style="font-size:10px;color:#4b5563;min-width:44px">${a.icon}</label>
-      <input type="range" min="1" max="60" value="${p}" style="flex:1;height:3px" oninput="adjust('${a.key}',parseInt(this.value))">
+      <input type="range" min="5" max="60" value="${p}" style="flex:1;height:3px" oninput="adjust('${a.key}',parseInt(this.value))">
       <span style="font-size:11px;font-weight:600;min-width:24px;text-align:right">${p}%</span>
     </div>`;
   }).join('');

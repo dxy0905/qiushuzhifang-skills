@@ -135,7 +135,7 @@
 <div class="card" id="step4" style="display:none">
   <div class="card-title">📋 五账户分配方案</div>
   <div style="font-size:11px;color:#86868b;margin-bottom:4px">可拖动滑块微调比例</div>
-  <div id="accountList"></div>
+  <div id="accountList"></div><div style="font-size:11px;color:#3b82f6;background:#eff6ff;border-radius:6px;padding:6px;margin-top:6px">🛡️ 看病救急：<b>¥169/年</b>（惠民保+意外险）↓ 可选参加</div>
   <div style="margin-top:6px">
     <button class="btn-primary" onclick="confirmPlan()">确认方案，开始执行</button>
   </div>
@@ -158,7 +158,7 @@
 <div class="footer">五福管家 · 邱数智方（福建）科技股份有限公司出品 · 终身免费</div>
 
 <script>
-const BIN_DB={"622202":"工商银行","622208":"工商银行","622588":"招商银行","621700":"建设银行","622848":"农业银行","601382":"中国银行","622260":"交通银行","621098":"邮储银行"};
+const BIN_DB={"622202":"工商银行","622208":"工商银行","620058":"工商银行","621226":"工商银行","622588":"招商银行","622575":"招商银行","622609":"招商银行","621700":"建设银行","621081":"建设银行","622700":"建设银行","622848":"农业银行","622845":"农业银行","621336":"农业银行","601382":"中国银行","621661":"中国银行","621666":"中国银行","622260":"交通银行","622258":"交通银行","621098":"邮储银行","622150":"邮储银行","622151":"邮储银行","622155":"浦发银行","622156":"浦发银行","622262":"中信银行","622659":"中信银行","622630":"光大银行","621488":"光大银行","622188":"民生银行","622619":"民生银行","622632":"华夏银行","622636":"华夏银行","622328":"兴业银行","621528":"兴业银行","622556":"广发银行","622557":"广发银行","622312":"平安银行","621626":"平安银行"};
 function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银行'}
 
 // 四个账户（看病救急单独处理）
@@ -173,7 +173,7 @@ let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":
 function sv(){localStorage.setItem('wf_state',JSON.stringify(st))}
 function next(s){st.step=s;sv();refresh()}
 
-function scanCard(){showManual();document.getElementById('manualLink').style.display='none'}
+function scanCard(){alert('请手动输入卡号，后续版本将支持OCR自动识别');showManual()}
 function showManual(){document.getElementById('manualInput').classList.add('show');document.getElementById('cardInput').focus()}
 
 function bindCard(){
@@ -201,7 +201,7 @@ function adjust(key,val){
   st.ratios[key]=val;
   const ot=ACCOUNTS.filter(a=>a.key!==key);
   const rem=100-val;const tt=ot.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
-  if(tt>0) ot.forEach(a=>st.ratios[a.key]=Math.round(rem*(st.ratios[a.key]||a.pct)/tt));
+  if(tt>0){let remaining=rem;const filtered=ot.filter(a=>{const r=Math.round(rem*(st.ratios[a.key]||a.pct)/tt);if(r<1){st.ratios[a.key]=1;remaining-=1;return false}return true});const ft=filtered.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);filtered.forEach(a=>st.ratios[a.key]=Math.round(remaining*(st.ratios[a.key]||a.pct)/ft))}
   const sm=ACCOUNTS.reduce((s,a)=>s+(st.ratios[a.key]||0),0);
   if(sm!==100)st.ratios[ACCOUNTS[ACCOUNTS.length-1].key]+=(100-sm);
   sv();refresh();
@@ -253,7 +253,7 @@ function renderAccounts(){
 function renderExec(){
   const lock=ACCOUNTS.filter(a=>a.type==='短期不动产').reduce((s,a)=>s+st.balance*(st.ratios[a.key]||a.pct)/100,0);
   const free=st.balance*(st.ratios.living||60)/100;
-  const insureText=st.insure?'✅ 已参保 ¥169/年（惠民保+意外险）':'❌ 未参保 · ¥169已转入钱生钱';
+  const insureText=st.insure?'✅ 已参保 ¥169/年（惠民保+意外险）':'❌ 未参保 · ¥169/年已自动转入📈钱生钱';
   
   document.getElementById('execStatus').innerHTML=`
     <div style="font-size:12px;color:#065f46;background:#d1fae5;border-radius:6px;padding:6px;margin-bottom:4px">✅ ${st.bank||'已绑定'} · 资金管理已启动</div>

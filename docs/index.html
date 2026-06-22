@@ -111,7 +111,7 @@
 <!-- 2.同意 -->
 <div class="agree-box" id="step2" style="display:none">
   <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
-  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常花销，剩余40%按比例转为短期不动产（孩子读书15%、养老钱10%、钱生钱15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入钱生钱。以后每笔收入到账自动按比例分配。</span></label>
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
 </div>
 
 <!-- 3.首次余额 -->
@@ -128,7 +128,7 @@
 <!-- 保险可选 -->
 <div class="insure-option" id="insureOpt" style="display:none">
   <label><input type="checkbox" id="insureCheck" checked onchange="refresh()">
-  <span>✅ 参加惠民保¥69/年 + 意外险¥100/年 = <b>¥169/年</b>（中国人保央企承保，不选的¥169自动转入钱生钱）</span></label>
+  <span>✅ 参加惠民保¥69/年 + 意外险¥100/年 = <b>¥169/年</b>（中国人保央企承保，不选的¥169自动转入投资增值）</span></label>
 </div>
 
 <!-- 4.微调确认 -->
@@ -163,10 +163,10 @@ function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银�
 
 // 四个账户（看病救急单独处理）
 const ACCOUNTS=[
-  {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24',type:'可支配',typeClass:'type-free',desc:'吃饭坐车交水电'},
-  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
-  {key:'pension',name:'养老钱',icon:'👴',pct:10,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
-  {key:'invest',name:'钱生钱',icon:'📈',pct:15,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
+  {key:'living',name:'日常支出',icon:'🏠',pct:60,color:'#fbbf24',type:'流动资金',typeClass:'type-free',desc:'日常生活基本开支'},
+  {key:'edu',name:'教育储备',icon:'🎓',pct:15,color:'#10b981',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·提前支取损失利息'},
+  {key:'pension',name:'养老储备',icon:'👴',pct:10,color:'#8b5cf6',type:'定期存款',typeClass:'type-lock',desc:'3-5年期定期存款·提前支取损失利息'},
+  {key:'invest',name:'投资增值',icon:'📈',pct:15,color:'#f59e0b',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·懂理财可转基金/国债'}
 ];
 
 let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":"","balance":0,"records":[],"ratios":{},"insure":true}');
@@ -328,7 +328,7 @@ function adjust(key,val){
 <!-- 2.同意 -->
 <div class="agree-box" id="step2" style="display:none">
   <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
-  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常花销，剩余40%按比例转为短期不动产（孩子读书15%、养老钱10%、钱生钱15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入钱生钱。以后每笔收入到账自动按比例分配。</span></label>
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常支出，剩余40%按比例转为定期存款（教育储备15%、养老储备10%、投资增值15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入投资增值。以后每笔收入到账自动按比例分配。</span></label>
 </div>
 
 <!-- 3.首次余额 -->
@@ -345,7 +345,7 @@ function adjust(key,val){
 <!-- 保险可选 -->
 <div class="insure-option" id="insureOpt" style="display:none">
   <label><input type="checkbox" id="insureCheck" checked onchange="refresh()">
-  <span>✅ 参加惠民保¥69/年 + 意外险¥100/年 = <b>¥169/年</b>（中国人保央企承保，不选的¥169自动转入钱生钱）</span></label>
+  <span>✅ 参加惠民保¥69/年 + 意外险¥100/年 = <b>¥169/年</b>（中国人保央企承保，不选的¥169自动转入投资增值）</span></label>
 </div>
 
 <!-- 4.微调确认 -->
@@ -380,10 +380,10 @@ function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银�
 
 // 四个账户（看病救急单独处理）
 const ACCOUNTS=[
-  {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24',type:'可支配',typeClass:'type-free',desc:'吃饭坐车交水电'},
-  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
-  {key:'pension',name:'养老钱',icon:'👴',pct:10,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
-  {key:'invest',name:'钱生钱',icon:'📈',pct:15,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
+  {key:'living',name:'日常支出',icon:'🏠',pct:60,color:'#fbbf24',type:'流动资金',typeClass:'type-free',desc:'日常生活基本开支'},
+  {key:'edu',name:'教育储备',icon:'🎓',pct:15,color:'#10b981',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·提前支取损失利息'},
+  {key:'pension',name:'养老储备',icon:'👴',pct:10,color:'#8b5cf6',type:'定期存款',typeClass:'type-lock',desc:'3-5年期定期存款·提前支取损失利息'},
+  {key:'invest',name:'投资增值',icon:'📈',pct:15,color:'#f59e0b',type:'定期存款',typeClass:'type-lock',desc:'5年期定期存款·懂理财可转基金/国债'}
 ];
 
 let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":"","balance":0,"records":[],"ratios":{},"insure":true}');
@@ -455,7 +455,7 @@ function renderAccounts(){
         <div class="acc-desc">${a.desc}</div>
       </div>
       <div class="acc-right">
-        <div class="acc-amount" style="color:${a.type==='短期不动产'?'#5b21b6':'#1d1d1f'}">¥${amt.toFixed(0)}</div>
+        <div class="acc-amount" style="color:${a.type==='定期存款'?'#5b21b6':'#1d1d1f'}">¥${amt.toFixed(0)}</div>
         <span class="acc-type ${a.typeClass}">${a.type}</span>
       </div>
     </div>
@@ -468,16 +468,16 @@ function renderAccounts(){
 }
 
 function renderExec(){
-  const lock=ACCOUNTS.filter(a=>a.type==='短期不动产').reduce((s,a)=>s+st.balance*(st.ratios[a.key]||a.pct)/100,0);
+  const lock=ACCOUNTS.filter(a=>a.type==='定期存款').reduce((s,a)=>s+st.balance*(st.ratios[a.key]||a.pct)/100,0);
   const free=st.balance*(st.ratios.living||60)/100;
-  const insureText=st.insure?'✅ 已参保 ¥169/年（惠民保+意外险）':'❌ 未参保 · ¥169/年已自动转入📈钱生钱';
+  const insureText=st.insure?'✅ 已参保 ¥169/年（惠民保+意外险）':'❌ 未参保 · ¥169/年已自动转入📈投资增值';
   
   document.getElementById('execStatus').innerHTML=`
     <div style="font-size:12px;color:#065f46;background:#d1fae5;border-radius:6px;padding:6px;margin-bottom:4px">✅ ${st.bank||'已绑定'} · 资金管理已启动</div>
     <div style="font-size:11px;color:#92400e;background:#fffbeb;border-radius:6px;padding:4px 6px;margin-bottom:4px">🛡️ ${insureText}</div>
     <div class="summary-grid">
-      <div class="summary-item" style="background:#fef3c7"><div style="color:#92400e">可支配</div><div style="font-size:18px;font-weight:700;color:#92400e">¥${free.toFixed(0)}</div><div style="color:#92400e;font-size:9px">日常花销</div></div>
-      <div class="summary-item" style="background:#ede9fe"><div style="color:#5b21b6">不动产</div><div style="font-size:18px;font-weight:700;color:#5b21b6">¥${lock.toFixed(0)}</div><div style="color:#5b21b6;font-size:9px">教育+养老+生钱</div></div>
+      <div class="summary-item" style="background:#fef3c7"><div style="color:#92400e">流动资金</div><div style="font-size:18px;font-weight:700;color:#92400e">¥${free.toFixed(0)}</div><div style="color:#92400e;font-size:9px">日常支出</div></div>
+      <div class="summary-item" style="background:#ede9fe"><div style="color:#5b21b6">定存</div><div style="font-size:18px;font-weight:700;color:#5b21b6">¥${lock.toFixed(0)}</div><div style="color:#5b21b6;font-size:9px">教育+养老+投资</div></div>
       <div class="summary-item" style="background:#dbeafe"><div style="color:#1e40af">保险/年</div><div style="font-size:18px;font-weight:700;color:#1e40af">${st.insure?'¥169':'¥0'}</div><div style="color:#1e40af;font-size:9px">惠民保+意外险</div></div>
     </div>
     <div style="font-size:11px;color:#86868b;text-align:center;margin:2px 0">↓ 每笔收入到账 ↓</div>`;

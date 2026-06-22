@@ -1,50 +1,59 @@
-# 邱数智方 Skills Hub
+# 「五福管家」项目最终方案
 
-**邱数智方（福建）科技股份有限公司** — 以数理为基，以智算为翼，解万策之题，汇邱氏之智
+> 邱数智方（福建）科技股份有限公司
+> 2026年6月22日 最终版
 
 ---
 
-## 📦 Skill 三件套
+## 一、项目定位
 
-| # | Skill | 版本 | 作者 | 说明 |
-|:-:|:------|:----:|:-----|:-----|
-| 🏺 | **nuwa-skill** | v1.1 | 邱数智方 · 技术局 李智 | 女娲造人 — 自动深度调研蒸馏成可运行的Skill |
-| 🧬 | **darwin-skill** | v2.0 | 邱数智方 · 技术局 李智 | 达尔文进化 — 自主Skill优化（9维评分+棘轮机制） |
-| 🎯 | **skill-orchestrator** | v1.0 | 邱数智方 · 技术局 李智 | 技能总指挥 — 优化/调度/管理三合一 |
+记账提醒工具，不是理财平台。**不帮投资理财、不推荐股票基金、不代销保险、不托管资金。** 钱一直在用户自己银行卡里。
 
-> 🏺 女娲 → 创建Skill初版 → 🧬 达尔文 → 优化Skill → 🎯 技能总指挥 → 调度管理
+## 二、五账户方案
 
-## 📥 安装方式
+| 账户 | 比例 | 类型 | 说明 |
+|:-----|:----:|:-----|:------|
+| 🏠 日常花销 | 60% | 可支配 | 吃饭坐车交水电 |
+| 🛡️ 看病救急 | ¥169/年 | 可选保险 | 惠民保¥69+意外险¥100，不选转钱生钱 |
+| 🎓 孩子读书 | 20% | 短期不动产 | 5年定期，提前取损失利息 |
+| 👴 养老钱 | 8% | 短期不动产 | 3-5年定期，提前取损失利息 |
+| 📈 钱生钱 | 12% | 短期不动产 | 5年定期，懂理财可改 |
 
-```bash
-# 方式1：从 GitHub 安装单个 Skill
-hermes skills install https://raw.githubusercontent.com/dxy0905/qiushuzhifang-skills/main/skills/skill-orchestrator/SKILL.md
-hermes skills install https://raw.githubusercontent.com/dxy0905/qiushuzhifang-skills/main/skills/darwin-skill/SKILL.md
-hermes skills install https://raw.githubusercontent.com/dxy0905/qiushuzhifang-skills/main/skills/nuwa-skill/SKILL.md
+## 三、用户流程
 
-# 方式2：从 ClawHub 安装（待上线）
-hermes skills install skill-orchestrator
-hermes skills install darwin-skill
-hermes skills install nuwa-skill
+```
+① 扫描绑卡 → ② 同意方案 → ③ 输入余额自动分配
+→ ④ 可选保险 → ⑤ 确认执行 → 每笔收入自动分
 ```
 
-## 📋 全部已发布 Skills
+## 四、技术方案
 
-| Skill | 路径 | 链接 |
-|:------|:-----|:-----|
-| skill-orchestrator | `skills/skill-orchestrator/SKILL.md` | [查看](https://github.com/dxy0905/qiushuzhifang-skills/blob/main/skills/skill-orchestrator/SKILL.md) |
-| darwin-skill | `skills/darwin-skill/SKILL.md` | [查看](https://github.com/dxy0905/qiushuzhifang-skills/blob/main/skills/darwin-skill/SKILL.md) |
-| nuwa-skill | `skills/nuwa-skill/SKILL.md` | [查看](https://github.com/dxy0905/qiushuzhifang-skills/blob/main/skills/nuwa-skill/SKILL.md) |
+- 前端：纯HTML/CSS/JS，PWA支持
+- 加密：AES-128-CBC+HMAC（Fernet）
+- 认证：JWT（PyJWT库）
+- 数据库：SQLite，全部参数化查询
+- 验证：三级验证（L1姓名手机/L2+身份证/L3+人脸）
+- 审计：链式哈希审计日志
+- 托管：GitHub Pages（免费）
 
-## 🏢 关于邱数智方
+## 五、安全措施
 
-| 项目 | 内容 |
-|:-----|:------|
-| **核心口号** | 以数理为基，以智算为翼，解万策之题，汇邱氏之智 |
-| **使命** | 让万物具备话语权，让普通人具备公信力 |
-| **愿景** | 打造立足福建、辐射全国、影响海丝之路的国际化数字科技集团 |
-| **价值观** | 客户第一、持续创新、团队协作、诚信正直、激情活力 |
+- ✅ 全部SQL参数化查询，无注入风险
+- ✅ AES加密敏感数据
+- ✅ JWT身份认证
+- ✅ 数据脱敏展示
+- ✅ 链式哈希审计日志
 
----
+## 六、消费者保护
 
-© 2026 邱数智方（福建）科技股份有限公司
+- ✅ 自愿加入（首屏声明不可跳过）
+- ✅ 7天冷静期
+- ✅ 保险可选（不选转钱生钱）
+- ✅ 比例可微调（自动100%）
+- ✅ 应急提取通道
+- ✅ 终身免费
+
+## 七、访问地址
+
+- Web App：https://dxy0905.github.io/qiushuzhifang-skills/
+- 源码：https://github.com/dxy0905/qiushuzhifang-skills

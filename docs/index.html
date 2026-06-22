@@ -11,7 +11,7 @@
   body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1d1d1f;padding-bottom:70px}
   .header{background:linear-gradient(135deg,#1a237e,#283593);padding:48px 16px 14px;text-align:center;color:#fff}
   .header-icon{font-size:34px}
-  .header h1{font-size:17px;font-weight:700;margin-top:2px;letter-spacing:2px}
+  .header h1{font-size:17px;font-weight:700;letter-spacing:2px}
   .header p{font-size:11px;color:rgba(255,255,255,0.7)}
 
   .steps{display:flex;margin:8px 12px 0;gap:4px}
@@ -23,21 +23,18 @@
   .card{background:#fff;border-radius:10px;margin:6px 12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
   .card-title{font-size:14px;font-weight:600;color:#4b5563;margin-bottom:10px}
 
-  /* 扫描绑卡 */
   .scan-area{text-align:center;padding:20px;background:#f8fafc;border:2px dashed #cbd5e1;border-radius:10px;margin-bottom:8px;cursor:pointer}
   .scan-area:active{background:#e2e8f0}
   .scan-icon{font-size:48px}
   .scan-text{font-size:14px;color:#4b5563;margin-top:6px;font-weight:500}
-  .scan-sub{font-size:11px;color:#9ca3af;margin-top:2px}
   .scan-input{display:none}
   
-  .card-preview{display:none;text-align:center;padding:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;margin-top:8px}
+  .card-preview{display:none;text-align:center;padding:10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;margin-top:6px}
   .card-preview.show{display:block}
-  .card-num{font-size:20px;font-weight:700;color:#1d1d1f;letter-spacing:2px;margin:4px 0}
-  .card-bank{font-size:13px;color:#10b981;font-weight:500}
-  .card-edit{font-size:11px;color:#2563eb;cursor:pointer;margin-top:4px;display:inline-block}
+  .card-num{font-size:18px;font-weight:700;letter-spacing:2px}
+  .card-bank{font-size:13px;color:#10b981;font-weight:500;margin-top:2px}
   
-  .manual-link{text-align:center;font-size:12px;color:#2563eb;cursor:pointer;margin-top:6px}
+  .manual-link{text-align:center;font-size:12px;color:#2563eb;cursor:pointer;margin-top:4px}
   .manual-input{display:none;margin-top:6px}
   .manual-input.show{display:flex;gap:6px}
   .manual-input input{flex:1;padding:8px;border:1px solid #e5e5ea;border-radius:6px;font-size:14px;outline:none}
@@ -47,10 +44,10 @@
   .agree-box label{display:flex;align-items:flex-start;gap:6px;cursor:pointer}
   .agree-box input[type="checkbox"]{margin-top:2px;width:16px;height:16px}
 
-  .income-row{display:flex;gap:6px}
-  .income-row input{flex:1;padding:8px 10px;border:1px solid #e5e5ea;border-radius:6px;font-size:14px;outline:none}
-  .income-row input:focus{border-color:#2563eb}
-  .income-row button{padding:8px 16px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+  .balance-row{display:flex;gap:6px;align-items:center}
+  .balance-row input{flex:1;padding:10px;border:1px solid #e5e5ea;border-radius:6px;font-size:18px;text-align:center;outline:none}
+  .balance-row input:focus{border-color:#2563eb}
+  .balance-row button{padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer}
 
   .acc-item{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #f3f4f6}
   .acc-item:last-child{border-bottom:none}
@@ -61,27 +58,31 @@
   .acc-desc{font-size:10px;color:#86868b}
   .acc-right{text-align:right}
   .acc-amount{font-size:14px;font-weight:600}
-  .acc-type{font-size:9px;padding:1px 4px;border-radius:3px;margin-top:1px;display:inline-block}
+  .acc-type{font-size:9px;padding:1px 4px;border-radius:3px;display:inline-block;margin-top:1px}
   .type-free{background:#fef3c7;color:#92400e}
   .type-lock{background:#dbeafe;color:#1e40af}
   .acc-bar{height:4px;background:#f2f2f7;border-radius:2px;overflow:hidden;margin-top:2px}
   .acc-fill{height:100%;border-radius:2px}
 
   .adjust-row{display:flex;align-items:center;gap:6px;margin:4px 0 0}
-  .adjust-row label{font-size:11px;color:#4b5563;min-width:56px}
+  .adjust-row label{font-size:11px;color:#4b5563;min-width:50px}
   .adjust-row input[type="range"]{flex:1;height:4px}
   .adjust-row .val{font-size:12px;font-weight:600;min-width:28px;text-align:right}
 
-  .exec-status{font-size:12px;color:#065f46;background:#d1fae5;border-radius:6px;padding:8px;margin-bottom:6px}
+  .btn-primary{width:100%;padding:10px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer}
+  
+  .income-section{margin-top:10px}
+  .income-row{display:flex;gap:6px}
+  .income-row input{flex:1;padding:8px 10px;border:1px solid #e5e5ea;border-radius:6px;font-size:14px;outline:none}
+  .income-row input:focus{border-color:#2563eb}
+  .income-row button{padding:8px 16px;background:#10b981;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+
   .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0}
   .summary-item{text-align:center;padding:8px;border-radius:6px}
   
   .record-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px}
   .record-item:last-child{border-bottom:none}
   .empty{text-align:center;color:#9ca3af;font-size:12px;padding:12px 0}
-
-  .btn-primary{padding:10px 24px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%}
-  .btn-success{padding:10px 24px;background:#10b981;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%}
 
   .footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:1px solid #e5e5ea;padding:6px 12px 10px;text-align:center;font-size:10px;color:#86868b}
 </style>
@@ -96,198 +97,182 @@
 
 <div class="steps" id="stepBar"></div>
 
+<!-- 第一步：扫描绑卡 -->
 <div id="step1">
   <div class="card">
-    <div class="card-title">📇 第一步：绑定银行卡</div>
-    <!-- 扫描区域 -->
+    <div class="card-title">📇 绑定银行卡</div>
     <div class="scan-area" onclick="document.getElementById('cameraInput').click()">
       <div class="scan-icon">📷</div>
-      <div class="scan-text">点击扫描银行卡</div>
-      <div class="scan-sub">打开摄像头，对准银行卡拍照</div>
+      <div class="scan-text">扫描银行卡</div>
+      <div class="scan-sub" style="font-size:11px;color:#9ca3af">打开摄像头，对准银行卡拍照</div>
     </div>
     <input type="file" id="cameraInput" accept="image/*" capture="environment" class="scan-input" onchange="scanCard(this)">
     
-    <!-- 识别结果 -->
-    <div class="card-preview" id="cardPreview">
-      <div style="font-size:11px;color:#86868b">识别结果</div>
+    <div class="card-preview" id="cardPreview" onclick="nextStep(2)">
       <div class="card-num" id="cardNum"></div>
       <div class="card-bank" id="cardBank"></div>
-      <span class="card-edit" onclick="showManual()">✏️ 修改卡号</span>
+      <div style="font-size:11px;color:#2563eb;margin-top:4px">点击下一步 →</div>
     </div>
-
-    <!-- 手动输入（备选） -->
+    
     <div class="manual-link" id="manualLink" onclick="showManual()">✏️ 手动输入卡号</div>
     <div class="manual-input" id="manualInput">
       <input type="text" id="cardInput" placeholder="输入银行卡号" maxlength="19">
-      <button onclick="bindCard()">绑定</button>
+      <button onclick="bindCard()">确认</button>
     </div>
-    <div style="font-size:12px;color:#10b981;text-align:center;margin-top:6px" id="bindMsg"></div>
   </div>
 </div>
 
+<!-- 第二步：同意方案 -->
 <div class="agree-box" id="step2" style="display:none">
   <label>
-    <input type="checkbox" id="agreeCheck" onchange="if(this.checked){nextStep(3)}">
-    <span><b>我已阅读并同意</b>五福管家资金管理方案：每月收入自动按比例分配到五个账户，除日常花销和看病备用外，其余账户自动转为短期不动产（定期存款），提前支取将损失利息。</span>
+    <input type="checkbox" id="agreeCheck" onchange="if(this.checked)nextStep(3)">
+    <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额自动按比例分配到五个账户，除日常花销和看病备用外，其余账户自动转为短期不动产（定期存款），提前支取将损失利息。以后每笔收入到账，系统自动按比例分配。</span>
   </label>
 </div>
 
+<!-- 第三步：首次余额分配 -->
 <div class="card" id="step3" style="display:none">
-  <div class="card-title">📊 第三步：设定月收入</div>
-  <div class="income-row">
-    <input type="number" id="incomeInput" placeholder="输入月收入（元）" min="0">
-    <button onclick="setIncome()">确认</button>
+  <div class="card-title">💰 首次资金分配</div>
+  <div style="font-size:12px;color:#86868b;margin-bottom:8px">输入您银行卡当前的余额，系统自动分配到五个账户</div>
+  <div class="balance-row">
+    <input type="number" id="balanceInput" placeholder="输入银行卡余额（元）" min="0">
+    <button onclick="distribute()">自动分配</button>
   </div>
+  <div id="firstDist" style="margin-top:8px"></div>
 </div>
 
+<!-- 第四步：微调确认 -->
 <div class="card" id="step4" style="display:none">
-  <div class="card-title">📋 第四步：五账户自动分配</div>
-  <div style="font-size:11px;color:#86868b;margin-bottom:8px">可拖动滑块微调比例，总和自动保持100%</div>
+  <div class="card-title">📋 五账户分配方案</div>
+  <div style="font-size:11px;color:#86868b;margin-bottom:6px">可拖动滑块微调比例</div>
   <div id="accountList"></div>
   <div style="margin-top:8px">
     <button class="btn-primary" onclick="confirmPlan()">确认方案，开始执行</button>
   </div>
 </div>
 
+<!-- 第五步：执行 -->
 <div class="card" id="step5" style="display:none">
   <div class="card-title">✅ 资金管理已启动</div>
   <div id="execStatus"></div>
-  <div style="margin-top:10px">
-    <div style="font-size:13px;font-weight:600;color:#4b5563;margin-bottom:6px">💰 每笔收入到账，点这里自动分配</div>
-    <div class="income-row" style="margin-bottom:6px">
+  
+  <div class="income-section">
+    <div style="font-size:13px;font-weight:600;color:#4b5563;margin-bottom:6px">📝 每笔收入到账，点这里自动分配</div>
+    <div class="income-row">
       <input type="number" id="newIncome" placeholder="输入收入金额（元）">
-      <button class="btn-success" onclick="addIncome()">自动分配</button>
+      <button onclick="addIncome()">自动分配</button>
     </div>
-    <div id="incomeRecords"></div>
+    <div id="incomeRecords" style="margin-top:6px"></div>
   </div>
 </div>
 
 <div class="footer">五福管家 · 邱数智方（福建）科技股份有限公司出品 · 终身免费</div>
 
 <script>
-// 银行卡BIN识别库
-const BIN_DB = {
-  "622202":"工商银行","622208":"工商银行","620058":"工商银行",
-  "622588":"招商银行","622575":"招商银行","622609":"招商银行",
-  "621700":"建设银行","621081":"建设银行","622700":"建设银行",
-  "622848":"农业银行","622845":"农业银行","621336":"农业银行",
-  "601382":"中国银行","620061":"中国银行","621666":"中国银行",
-  "622260":"交通银行","622258":"交通银行","405512":"交通银行",
-  "621098":"邮储银行","622150":"邮储银行","622151":"邮储银行",
-  "622155":"浦发银行","622156":"浦发银行","621351":"浦发银行",
-  "622262":"中信银行","622659":"中信银行","621767":"中信银行",
-  "622630":"光大银行","621488":"光大银行","621491":"光大银行",
-  "622188":"民生银行","622619":"民生银行","622620":"民生银行",
-  "622632":"华夏银行","622636":"华夏银行","621222":"华夏银行",
-  "622328":"兴业银行","621528":"兴业银行","621529":"兴业银行",
-  "622556":"广发银行","622557":"广发银行","621462":"广发银行",
-  "622312":"平安银行","622313":"平安银行","621627":"平安银行"
+const BIN_DB={
+  "622202":"工商银行","622208":"工商银行","622588":"招商银行","621700":"建设银行",
+  "622848":"农业银行","601382":"中国银行","622260":"交通银行","621098":"邮储银行",
+  "622155":"浦发银行","622262":"中信银行","622630":"光大银行","622188":"民生银行",
+  "622632":"华夏银行","622328":"兴业银行","622556":"广发银行","622312":"平安银行"
 };
-function identifyBank(cardNo){
-  const bin = cardNo.replace(/\s/g,'').slice(0,6);
-  return BIN_DB[bin] || '其他银行';
-}
+function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银行'}
 
-const ACCOUNTS = [
-  {key:'living', name:'日常花销', icon:'🏠', pct:60, color:'#fbbf24', type:'可支配', typeClass:'type-free', desc:'吃饭坐车交水电'},
-  {key:'insure', name:'看病救急', icon:'🛡️', pct:10, color:'#3b82f6', type:'活期备用', typeClass:'type-free', desc:'保险¥169/年+备用'},
-  {key:'edu', name:'孩子读书', icon:'🎓', pct:15, color:'#10b981', type:'短期不动产', typeClass:'type-lock', desc:'5年定期·提前取损失利息'},
-  {key:'pension', name:'养老钱', icon:'👴', pct:5, color:'#8b5cf6', type:'短期不动产', typeClass:'type-lock', desc:'3-5年定期·提前取损失利息'},
-  {key:'invest', name:'钱生钱', icon:'📈', pct:10, color:'#f59e0b', type:'短期不动产', typeClass:'type-lock', desc:'5年定期·懂理财可改'}
+const ACCOUNTS=[
+  {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24',type:'可支配',typeClass:'type-free',desc:'吃饭坐车交水电'},
+  {key:'insure',name:'看病救急',icon:'🛡️',pct:10,color:'#3b82f6',type:'活期备用',typeClass:'type-free',desc:'保险¥169/年+备用'},
+  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
+  {key:'pension',name:'养老钱',icon:'👴',pct:5,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
+  {key:'invest',name:'钱生钱',icon:'📈',pct:10,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
 ];
 
-let state = JSON.parse(localStorage.getItem('wf_state') || '{"step":1,"card":"","bank":"","income":0,"records":[],"ratios":{}}');
-function save(){localStorage.setItem('wf_state', JSON.stringify(state))}
+let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":"","balance":0,"records":[],"ratios":{}}');
+function sv(){localStorage.setItem('wf_state',JSON.stringify(st))}
+function ns(s){st.step=s;sv();refresh()}
 
-function nextStep(s){state.step=s; save(); refresh()}
-
-// 扫描银行卡
-function scanCard(input){
-  const file = input.files[0];
-  if(!file) return;
-  // 模拟卡号识别（实际项目中可接入OCR API）
-  // 这里先让用户手动输入，后续可对接OCR服务
+function scanCard(i){
+  i.value='';
   showManual();
   document.getElementById('manualLink').style.display='none';
 }
 
 function showManual(){
   document.getElementById('manualInput').classList.add('show');
-  document.getElementById('manualLink').style.display='none';
   document.getElementById('cardInput').focus();
 }
 
-// BIN识别发卡行
 function bindCard(){
-  let no = document.getElementById('cardInput').value.trim().replace(/\s/g,'');
+  let no=document.getElementById('cardInput').value.trim().replace(/\s/g,'');
   if(no.length<16){alert('请输入正确的银行卡号');return}
-  const bank = identifyBank(no);
-  state.card = no;
-  state.bank = bank;
-  state.step = 2;
-  save(); refresh();
+  st.card=no; st.bank=idBank(no);
+  ns(2);
   document.getElementById('cardPreview').classList.add('show');
-  document.getElementById('cardNum').textContent = no.replace(/(.{4})/g,'$1 ');
-  document.getElementById('cardBank').textContent = '✅ ' + bank;
-  document.getElementById('bindMsg').textContent = '✅ 银行卡绑定成功';
+  document.getElementById('cardNum').textContent=no.replace(/(.{4})/g,'$1 ');
+  document.getElementById('cardBank').textContent='✅ '+st.bank;
 }
 
-function setIncome(){
-  const v = parseFloat(document.getElementById('incomeInput').value);
-  if(!v||v<=0){alert('请输入月收入');return}
-  state.income=v; state.ratios={};
-  ACCOUNTS.forEach(a=>state.ratios[a.key]=a.pct);
-  state.step=4; save(); refresh();
+function distribute(){
+  const v=parseFloat(document.getElementById('balanceInput').value);
+  if(!v||v<=0){alert('请输入银行卡余额');return}
+  st.balance=v; st.ratios={};
+  ACCOUNTS.forEach(a=>st.ratios[a.key]=a.pct);
+  st.step=4; sv(); refresh();
+  // 显示首次分配结果
+  const el=document.getElementById('firstDist');
+  el.innerHTML=ACCOUNTS.map(a=>{
+    const amt=v*(st.ratios[a.key]||a.pct)/100;
+    return `<div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0">
+      <span>${a.icon} ${a.name}</span>
+      <span style="font-weight:600">¥${amt.toFixed(0)}</span>
+    </div>`;
+  }).join('');
 }
 
 function adjust(key,val){
-  state.ratios[key]=val;
-  const others=ACCOUNTS.filter(a=>a.key!==key);
+  st.ratios[key]=val;
+  const ot=ACCOUNTS.filter(a=>a.key!==key);
   const rem=100-val;
-  const ot=others.reduce((s,a)=>s+(state.ratios[a.key]||a.pct),0);
-  if(ot>0) others.forEach(a=>state.ratios[a.key]=Math.round(rem*(state.ratios[a.key]||a.pct)/ot));
-  const sum=ACCOUNTS.reduce((s,a)=>s+(state.ratios[a.key]||0),0);
-  if(sum!==100) state.ratios[ACCOUNTS[ACCOUNTS.length-1].key]+=(100-sum);
-  save(); refresh();
+  const tt=ot.reduce((s,a)=>s+(st.ratios[a.key]||a.pct),0);
+  if(tt>0) ot.forEach(a=>st.ratios[a.key]=Math.round(rem*(st.ratios[a.key]||a.pct)/tt));
+  const sm=ACCOUNTS.reduce((s,a)=>s+(st.ratios[a.key]||0),0);
+  if(sm!==100) st.ratios[ACCOUNTS[ACCOUNTS.length-1].key]+=(100-sm);
+  sv(); refresh();
 }
 
-function confirmPlan(){state.step=5; save(); refresh()}
+function confirmPlan(){ns(5)}
 
 function addIncome(){
   const v=parseFloat(document.getElementById('newIncome').value);
   if(!v||v<=0){alert('请输入金额');return}
-  state.records.push({amount:v,date:new Date().toLocaleDateString(),time:Date.now()});
-  save(); refresh();
+  st.records.push({amount:v,date:new Date().toLocaleDateString(),time:Date.now()});
+  st.balance+=v; sv(); refresh();
   document.getElementById('newIncome').value='';
 }
 
 function refresh(){
-  const steps=['','绑卡','同意方案','设收入','分配','执行'];
+  const ss=['','绑卡','同意','首次分配','微调','执行'];
   document.getElementById('stepBar').innerHTML=[1,2,3,4].map(i=>
-    `<div class="step ${state.step>i?'step-done':state.step===i?'step-current':'step-todo'}">${steps[i]}</div>`
+    `<div class="step ${st.step>i?'step-done':st.step===i?'step-current':'step-todo'}">${ss[i]}</div>`
   ).join('');
   
-  document.getElementById('step1').style.display=state.step===1?'block':'none';
-  document.getElementById('step2').style.display=state.step===2?'block':'none';
-  document.getElementById('step3').style.display=state.step===3?'block':'none';
-  document.getElementById('step4').style.display=state.step===4?'block':'none';
-  document.getElementById('step5').style.display=state.step>=5?'block':'none';
+  for(let i=1;i<=5;i++){
+    const el=document.getElementById('step'+i);
+    if(el) el.style.display=st.step===i?'block':'none';
+  }
   
-  if(state.card) document.getElementById('cardInput').value=state.card;
-  if(state.income) document.getElementById('incomeInput').value=state.income;
-  if(state.step===4) renderAccounts();
-  if(state.step>=5) renderExec();
+  if(st.card) document.getElementById('cardInput').value=st.card;
+  if(st.step===4) renderAccounts();
+  if(st.step>=5) renderExec();
 }
 
 function renderAccounts(){
   document.getElementById('accountList').innerHTML=ACCOUNTS.map(a=>{
-    const pct=state.ratios[a.key]||a.pct;
-    const amt=state.income*pct/100;
+    const p=st.ratios[a.key]||a.pct;
+    const amt=st.balance*p/100;
     return `<div class="acc-item">
       <div class="acc-icon">${a.icon}</div>
       <div class="acc-info">
-        <div class="acc-name">${a.name} <span class="pct">${pct}%</span></div>
-        <div class="acc-bar"><div class="acc-fill" style="width:${pct}%;background:${a.color}"></div></div>
+        <div class="acc-name">${a.name} <span class="pct">${p}%</span></div>
+        <div class="acc-bar"><div class="acc-fill" style="width:${p}%;background:${a.color}"></div></div>
         <div class="acc-desc">${a.desc}</div>
       </div>
       <div class="acc-right">
@@ -297,40 +282,42 @@ function renderAccounts(){
     </div>
     <div class="adjust-row">
       <label>${a.icon}</label>
-      <input type="range" min="1" max="70" value="${pct}" oninput="adjust('${a.key}',parseInt(this.value))">
-      <span class="val">${pct}%</span>
+      <input type="range" min="1" max="70" value="${p}" oninput="adjust('${a.key}',parseInt(this.value))">
+      <span class="val">${p}%</span>
     </div>`;
   }).join('');
 }
 
 function renderExec(){
   const lock=ACCOUNTS.filter(a=>a.type==='短期不动产')
-    .reduce((s,a)=>s+state.income*(state.ratios[a.key]||a.pct)/100,0);
+    .reduce((s,a)=>s+st.balance*(st.ratios[a.key]||a.pct)/100,0);
   const free=ACCOUNTS.filter(a=>a.type!=='短期不动产')
-    .reduce((s,a)=>s+state.income*(state.ratios[a.key]||a.pct)/100,0);
+    .reduce((s,a)=>s+st.balance*(st.ratios[a.key]||a.pct)/100,0);
   
   document.getElementById('execStatus').innerHTML=`
-    <div class="exec-status">✅ 资金管理方案已启动！每笔收入到账自动按比例分配。</div>
+    <div style="font-size:12px;color:#065f46;background:#d1fae5;border-radius:6px;padding:8px;margin-bottom:6px">
+      ✅ ${st.bank||'已绑定银行卡'} · 资金管理已启动
+    </div>
     <div class="summary-grid">
       <div class="summary-item" style="background:#dbeafe">
-        <div style="font-size:9px;color:#1e40af">每月可支配</div>
+        <div style="font-size:9px;color:#1e40af">可支配资金</div>
         <div style="font-size:20px;font-weight:700;color:#1e40af">¥${free.toFixed(0)}</div>
         <div style="font-size:9px;color:#1e40af">日常花销+看病备用</div>
       </div>
       <div class="summary-item" style="background:#ede9fe">
-        <div style="font-size:9px;color:#5b21b6">每月短期不动产</div>
+        <div style="font-size:9px;color:#5b21b6">短期不动产</div>
         <div style="font-size:20px;font-weight:700;color:#5b21b6">¥${lock.toFixed(0)}</div>
         <div style="font-size:9px;color:#5b21b6">教育+养老+钱生钱</div>
       </div>
     </div>
-    <div style="font-size:11px;color:#86868b">每笔收入到账，点"自动分配"↓</div>`;
+    <div style="font-size:11px;color:#86868b;text-align:center">↓ 每笔收入到账，点这里自动分配 ↓</div>`;
 
   const rl=document.getElementById('incomeRecords');
-  if(state.records.length===0){
-    rl.innerHTML='<div class="empty">暂无收入记录，发工资了记一笔</div>';
+  if(st.records.length===0){
+    rl.innerHTML='<div class="empty">还没有收入记录</div>';
   } else {
-    rl.innerHTML=[...state.records].reverse().slice(0,10).map(r=>{
-      const det=ACCOUNTS.map(a=>{const p=state.ratios[a.key]||a.pct; return `${a.icon}${(r.amount*p/100).toFixed(0)}`}).join(' ');
+    rl.innerHTML=[...st.records].reverse().slice(0,10).map(r=>{
+      const det=ACCOUNTS.map(a=>{const p=st.ratios[a.key]||a.pct; return `${a.icon}${(r.amount*p/100).toFixed(0)}`}).join(' ');
       return `<div class="record-item">
         <div class="record-left"><span>💰</span><span style="color:#10b981;font-weight:600">+¥${r.amount.toFixed(0)}</span><span style="color:#9ca3af;font-size:10px">${r.date}</span></div>
         <span style="font-size:10px;color:#9ca3af">${det}</span>

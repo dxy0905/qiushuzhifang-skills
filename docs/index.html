@@ -5,69 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#1a237e">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="五福管家——帮普通老百姓把每一分钱都安排好">
 <link rel="manifest" href="manifest.json">
 <title>五福管家</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1d1d1f;padding-bottom:70px}
+  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1d1d1f;padding-bottom:80px}
   
-  /* 头部 */
-  .header{background:linear-gradient(135deg,#1a237e,#283593);padding:50px 16px 20px;text-align:center;color:#fff}
-  .header-icon{font-size:40px;margin-bottom:4px}
-  .header h1{font-size:20px;font-weight:700;letter-spacing:2px}
-  .header p{font-size:12px;color:rgba(255,255,255,0.7);margin-top:2px}
+  .header{background:linear-gradient(135deg,#1a237e,#283593);padding:50px 16px 16px;text-align:center;color:#fff}
+  .header-icon{font-size:36px}
+  .header h1{font-size:18px;font-weight:700;letter-spacing:2px;margin-top:2px}
+  .header p{font-size:12px;color:rgba(255,255,255,0.7)}
   
-  /* 总收入卡片 */
-  .total-card{background:#fff;border-radius:12px;margin:12px 12px 0;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);text-align:center}
-  .total-label{font-size:12px;color:#86868b}
-  .total-amount{font-size:28px;font-weight:700;color:#1a237e;margin:4px 0}
-  .total-date{font-size:11px;color:#86868b}
+  /* 本月概况 */
+  .overview{background:#fff;border-radius:12px;margin:10px 12px 0;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+  .overview-row{display:flex;justify-content:space-between;align-items:center}
+  .overview-item{text-align:center;flex:1}
+  .overview-label{font-size:11px;color:#86868b}
+  .overview-num{font-size:18px;font-weight:700;color:#1d1d1f;margin-top:2px}
+  .overview-num.income{color:#10b981}
+  .overview-num.spend{color:#ef4444}
   
-  /* 收入输入 */
-  .input-section{background:#fff;border-radius:12px;margin:8px 12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
-  .input-row{display:flex;gap:8px;align-items:center}
-  .input-row input{flex:1;padding:10px 12px;border:1px solid #e5e5ea;border-radius:8px;font-size:14px;outline:none}
+  /* 记账输入 */
+  .input-section{background:#fff;border-radius:12px;margin:8px 12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+  .input-tabs{display:flex;gap:0;margin-bottom:8px;border-radius:8px;overflow:hidden;border:1px solid #e5e5ea}
+  .input-tab{flex:1;padding:6px;text-align:center;font-size:13px;cursor:pointer;background:#f9fafb;color:#86868b;font-weight:500}
+  .input-tab.active{background:#2563eb;color:#fff}
+  .input-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .input-row input{flex:1;min-width:80px;padding:8px 10px;border:1px solid #e5e5ea;border-radius:6px;font-size:13px;outline:none}
   .input-row input:focus{border-color:#3b82f6}
-  .input-row button{padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
-  .input-row button:active{background:#1d4ed8}
+  .input-row select{padding:8px 6px;border:1px solid #e5e5ea;border-radius:6px;font-size:12px;background:#fff}
+  .input-row button{padding:8px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
   
-  /* 五个账户 */
+  /* 五账户 */
   .accounts{padding:0 12px}
-  .account-card{background:#fff;border-radius:12px;margin-bottom:6px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05);display:flex;align-items:center;border-left:4px solid}
-  .acc-icon{font-size:24px;width:36px;text-align:center}
-  .acc-info{flex:1;margin:0 8px}
-  .acc-name{font-size:13px;font-weight:600}
-  .acc-name .pct{color:#86868b;font-weight:400;font-size:11px;margin-left:4px}
-  .acc-desc{font-size:10px;color:#86868b}
-  .acc-amount{text-align:right}
-  .acc-balance{font-size:15px;font-weight:600;color:#1d1d1f}
-  .acc-label{font-size:10px;color:#86868b}
-  .acc-bar{height:4px;background:#f2f2f7;border-radius:2px;overflow:hidden;margin-top:4px}
+  .acc-card{background:#fff;border-radius:10px;margin-bottom:5px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:flex;align-items:center;border-left:4px solid}
+  .acc-icon{font-size:20px;width:30px;text-align:center}
+  .acc-info{flex:1;margin:0 6px}
+  .acc-name{font-size:12px;font-weight:600}
+  .acc-name .pct{color:#86868b;font-weight:400;font-size:11px}
+  .acc-bar{height:4px;background:#f2f2f7;border-radius:2px;overflow:hidden;margin-top:2px;width:60px}
   .acc-fill{height:100%;border-radius:2px}
+  .acc-amount{text-align:right;min-width:70px}
+  .acc-bal{font-size:14px;font-weight:600}
+  .acc-label{font-size:9px;color:#86868b}
   
-  /* 操作按钮 */
-  .actions{display:flex;gap:8px;padding:8px 12px}
-  .actions button{flex:1;padding:10px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer}
-  .btn-reset{background:#fee2e2;color:#dc2626}
-  .btn-insure{background:#dbeafe;color:#2563eb}
-  .btn-info{background:#f3f4f6;color:#4b5563}
+  /* 最近记录 */
+  .records{background:#fff;border-radius:12px;margin:8px 12px 0;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+  .records-title{font-size:13px;font-weight:600;margin-bottom:6px;color:#4b5563}
+  .record-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:12px}
+  .record-item:last-child{border-bottom:none}
+  .record-left{display:flex;align-items:center;gap:6px}
+  .record-icon{font-size:14px}
+  .record-name{color:#374151}
+  .record-date{color:#9ca3af;font-size:10px}
+  .record-amount{font-weight:600}
+  .record-amount.income{color:#10b981}
+  .record-amount.spend{color:#ef4444}
+  .empty-records{text-align:center;color:#9ca3af;font-size:12px;padding:16px 0}
   
-  /* 保险弹窗 */
+  .footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:1px solid #e5e5ea;padding:6px 12px 10px;text-align:center;font-size:10px;color:#86868b}
+  
   .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:100;align-items:flex-end;justify-content:center}
   .modal.show{display:flex}
-  .modal-content{background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:420px;max-height:70vh;overflow-y:auto;padding:20px;animation:slideUp .3s}
+  .modal-content{background:#fff;border-radius:14px 14px 0 0;width:100%;max-width:420px;max-height:70vh;overflow-y:auto;padding:16px;animation:slideUp .3s}
   @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-  .modal-title{font-size:16px;font-weight:700;margin-bottom:12px}
-  .modal-close{float:right;font-size:20px;color:#86868b;cursor:pointer}
-  .modal-body{font-size:13px;line-height:1.7;color:#3a3a3c}
-  .modal-body p{margin-bottom:8px}
-  .hl{color:#2563eb;font-weight:600}
-  
-  /* 底部 */
-  .footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:1px solid #e5e5ea;padding:8px 12px 12px;text-align:center;font-size:10px;color:#86868b}
-  .footer a{color:#2563eb;text-decoration:none}
+  .modal-title{font-size:15px;font-weight:700;margin-bottom:8px}
+  .modal-close{float:right;font-size:18px;color:#86868b;cursor:pointer}
+  .modal-body{font-size:12px;line-height:1.6;color:#3a3a3c}
 </style>
 </head>
 <body>
@@ -75,147 +80,149 @@
 <div class="header">
   <div class="header-icon">💰</div>
   <h1>五福管家</h1>
-  <p>帮普通老百姓把每一分钱都安排好</p>
+  <p>自己记一笔，心里有本账</p>
 </div>
 
-<div class="total-card">
-  <div class="total-label">本月总收入</div>
-  <div class="total-amount" id="totalIncome">¥0.00</div>
-  <div class="total-date">输入月收入，自动分配到五个账户</div>
+<div class="overview">
+  <div class="overview-row">
+    <div class="overview-item">
+      <div class="overview-label">本月收入</div>
+      <div class="overview-num income" id="monthIncome">¥0</div>
+    </div>
+    <div class="overview-item">
+      <div class="overview-label">本月支出</div>
+      <div class="overview-num spend" id="monthSpend">¥0</div>
+    </div>
+    <div class="overview-item">
+      <div class="overview-label">五账户总余额</div>
+      <div class="overview-num" id="totalBalance" style="color:#1a237e">¥0</div>
+    </div>
+  </div>
 </div>
 
 <div class="input-section">
+  <div class="input-tabs">
+    <div class="input-tab active" id="tabIncome" onclick="setType('income')">记收入</div>
+    <div class="input-tab" id="tabSpend" onclick="setType('spend')">记支出</div>
+  </div>
   <div class="input-row">
-    <input type="number" id="incomeInput" placeholder="输入月收入（元）" min="0">
-    <button onclick="distribute()">分配</button>
+    <input type="number" id="amountInput" placeholder="金额" min="0">
+    <select id="accountSelect"></select>
+    <button onclick="addRecord()">记账</button>
   </div>
 </div>
 
 <div class="accounts" id="accounts"></div>
 
-<div class="actions">
-  <button class="btn-insure" onclick="showInsure()">🛡️ 保险方案</button>
-  <button class="btn-info" onclick="showAbout()">📋 关于</button>
-  <button class="btn-reset" onclick="resetAll()">↺ 重置</button>
+<div class="records" id="recordsSection">
+  <div class="records-title">📋 最近记录</div>
+  <div id="recordList"><div class="empty-records">还没有记录，先记一笔吧</div></div>
 </div>
 
-<!-- 保险弹窗 -->
-<div class="modal" id="insureModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="hideModal('insureModal')">✕</span>
-    <div class="modal-title">🛡️ 保险方案 · 一年只要169块</div>
-    <div class="modal-body">
-      <p><span class="hl">惠民保（政府指导）</span> ¥69/年<br>住院医疗最高报销250万，不限年龄健康状况</p>
-      <p><span class="hl">综合意外险</span> ¥100/年<br>意外身故赔20万，意外医疗报1万</p>
-      <p><span class="hl">合计：¥169/年 ≈ 每天5毛钱</span></p>
-      <p>保险由中国人保等大型保险公司承保，靠谱放心。</p>
-      <p style="color:#86868b;font-size:11px;margin-top:10px">注：本工具仅展示保险信息，购买请跳转至保险公司官方渠道。</p>
-    </div>
-  </div>
-</div>
-
-<!-- 关于弹窗 -->
-<div class="modal" id="aboutModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="hideModal('aboutModal')">✕</span>
-    <div class="modal-title">📋 关于五福管家</div>
-    <div class="modal-body">
-      <p><span class="hl">记账提醒工具，不是理财平台</span></p>
-      <p>钱一直在您自己的银行卡里，不帮投资理财、不推荐股票基金、不代销保险、不托管资金。</p>
-      <p><span class="hl">五账户比例：</span><br>
-      🏠 日常花销 60%<br>
-      🛡️ 看病救急 10%（保险¥169/年）<br>
-      🎓 孩子读书 15%（5年定期）<br>
-      👴 养老钱 5%<br>
-      📈 钱生钱 10%（5年定期，懂理财可改）</p>
-      <p><span class="hl">消费者保护：</span><br>
-      ✅ 自愿加入<br>
-      ✅ 7天冷静期<br>
-      ✅ 应急提取通道<br>
-      ✅ AES加密保护</p>
-      <p style="color:#86868b;font-size:11px;margin-top:10px">邱数智方（福建）科技股份有限公司</p>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  五福管家 · 记账提醒工具 · 钱在自己卡里 · 
-  <a href="#" onclick="showInsure()">保险¥169/年</a>
-</div>
+<div class="footer">五福管家 · 邱数智方（福建）科技股份有限公司出品 · 终身免费</div>
 
 <script>
 const ACCOUNTS = [
-  {key:'living', name:'日常花销', icon:'🏠', pct:60, color:'#fbbf24', desc:'吃饭坐车交水电'},
-  {key:'insure', name:'看病救急', icon:'🛡️', pct:10, color:'#3b82f6', desc:'保险¥169+活期备用'},
-  {key:'edu', name:'孩子读书', icon:'🎓', pct:15, color:'#10b981', desc:'5年定期，利率最高'},
-  {key:'pension', name:'养老钱', icon:'👴', pct:5, color:'#8b5cf6', desc:'3-5年定期储备'},
-  {key:'invest', name:'钱生钱', icon:'📈', pct:10, color:'#f59e0b', desc:'5年定期，懂理财可改'}
+  {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24'},
+  {key:'insure',name:'看病救急',icon:'🛡️',pct:10,color:'#3b82f6'},
+  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981'},
+  {key:'pension',name:'养老钱',icon:'👴',pct:5,color:'#8b5cf6'},
+  {key:'invest',name:'钱生钱',icon:'📈',pct:10,color:'#f59e0b'}
 ];
 
-function renderAccounts(data){
-  const el = document.getElementById('accounts');
-  el.innerHTML = ACCOUNTS.map(a => {
-    const amount = data ? (data[a.key] || 0) : 0;
-    return `<div class="account-card" style="border-left-color:${a.color}">
+let recType = 'income';
+let records = JSON.parse(localStorage.getItem('wf_records') || '[]');
+
+// 初始化下拉框
+const sel = document.getElementById('accountSelect');
+ACCOUNTS.forEach(a => {
+  const o = document.createElement('option');
+  o.value = a.key; o.textContent = a.icon + ' ' + a.name;
+  sel.appendChild(o);
+});
+
+function setType(t){
+  recType = t;
+  document.getElementById('tabIncome').className='input-tab'+(t==='income'?' active':'');
+  document.getElementById('tabSpend').className='input-tab'+(t==='spend'?' active':'');
+}
+
+function addRecord(){
+  const amt = parseFloat(document.getElementById('amountInput').value);
+  if(!amt || amt<=0){alert('请输入金额');return}
+  const acc = document.getElementById('accountSelect').value;
+  records.push({type:recType, amount:amt, account:acc, date:new Date().toLocaleDateString(), time:Date.now()});
+  localStorage.setItem('wf_records', JSON.stringify(records));
+  document.getElementById('amountInput').value = '';
+  refresh();
+}
+
+// 计算各账户余额
+function calcBalances(){
+  const bal = {}; ACCOUNTS.forEach(a => bal[a.key] = 0);
+  let monthIncome = 0, monthSpend = 0;
+  const now = new Date();
+  const thisMonth = now.getMonth();
+  const thisYear = now.getFullYear();
+  
+  records.forEach(r => {
+    const d = new Date(r.time);
+    if(d.getMonth()===thisMonth && d.getFullYear()===thisYear){
+      if(r.type==='income') monthIncome += r.amount;
+      else monthSpend += r.amount;
+    }
+    if(r.type==='income') bal[r.account] = (bal[r.account]||0) + r.amount;
+    else bal[r.account] = (bal[r.account]||0) - r.amount;
+  });
+  
+  return {bal, monthIncome, monthSpend};
+}
+
+function refresh(){
+  const {bal, monthIncome, monthSpend} = calcBalances();
+  const total = Object.values(bal).reduce((a,b)=>a+b, 0);
+  
+  document.getElementById('monthIncome').textContent = '¥'+monthIncome.toFixed(0);
+  document.getElementById('monthSpend').textContent = '¥'+monthSpend.toFixed(0);
+  document.getElementById('totalBalance').textContent = '¥'+total.toFixed(0);
+  
+  // 渲染五个账户
+  document.getElementById('accounts').innerHTML = ACCOUNTS.map(a => {
+    const b = bal[a.key]||0;
+    return `<div class="acc-card" style="border-left-color:${a.color}">
       <div class="acc-icon">${a.icon}</div>
       <div class="acc-info">
         <div class="acc-name">${a.name} <span class="pct">${a.pct}%</span></div>
-        <div class="acc-desc">${a.desc}</div>
         <div class="acc-bar"><div class="acc-fill" style="width:${a.pct}%;background:${a.color}"></div></div>
       </div>
       <div class="acc-amount">
-        <div class="acc-balance">¥${amount.toFixed(2)}</div>
+        <div class="acc-bal" style="color:${b>=0?'#1d1d1f':'#ef4444'}">¥${b.toFixed(0)}</div>
         <div class="acc-label">${a.pct}%</div>
       </div>
     </div>`;
   }).join('');
-}
-
-function distribute(){
-  const income = parseFloat(document.getElementById('incomeInput').value);
-  if(!income || income <= 0){alert('请输入月收入');return}
   
-  const data = {};
-  ACCOUNTS.forEach(a => {data[a.key] = income * a.pct / 100});
-  
-  document.getElementById('totalIncome').textContent = `¥${income.toFixed(2)}`;
-  renderAccounts(data);
-  
-  // 保存到本地
-  localStorage.setItem('wf_income', income);
-  localStorage.setItem('wf_data', JSON.stringify(data));
+  // 渲染最近记录
+  const list = document.getElementById('recordList');
+  if(records.length===0){
+    list.innerHTML = '<div class="empty-records">还没有记录，先记一笔吧</div>';
+  } else {
+    list.innerHTML = [...records].reverse().slice(0,20).map(r => {
+      const a = ACCOUNTS.find(x => x.key===r.account);
+      return `<div class="record-item">
+        <div class="record-left">
+          <span class="record-icon">${a?a.icon:'💰'}</span>
+          <span class="record-name">${a?a.name:'其他'} ${r.type==='income'?'收入':'支出'}</span>
+          <span class="record-date">${r.date}</span>
+        </div>
+        <span class="record-amount ${r.type}">${r.type==='income'?'+':'-'}¥${r.amount.toFixed(0)}</span>
+      </div>`;
+    }).join('');
+  }
 }
-
-function resetAll(){
-  if(!confirm('确定重置所有数据？')) return;
-  localStorage.removeItem('wf_income');
-  localStorage.removeItem('wf_data');
-  document.getElementById('totalIncome').textContent = '¥0.00';
-  document.getElementById('incomeInput').value = '';
-  renderAccounts({});
-}
-
-function showInsure(){document.getElementById('insureModal').classList.add('show')}
-function showAbout(){document.getElementById('aboutModal').classList.add('show')}
-function hideModal(id){document.getElementById(id).classList.remove('show')}
-
-// 点击遮罩关闭
-document.querySelectorAll('.modal').forEach(m => {
-  m.addEventListener('click', function(e){if(e.target===this)this.classList.remove('show')})
-});
 
 // 启动加载
-(function(){
-  const saved = localStorage.getItem('wf_data');
-  const income = localStorage.getItem('wf_income');
-  if(saved && income){
-    document.getElementById('totalIncome').textContent = `¥${parseFloat(income).toFixed(2)}`;
-    document.getElementById('incomeInput').value = income;
-    renderAccounts(JSON.parse(saved));
-  } else {
-    renderAccounts({});
-  }
-})();
+refresh();
 </script>
 </body>
 </html>

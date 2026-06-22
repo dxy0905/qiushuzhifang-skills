@@ -1,0 +1,22 @@
+{
+  "name": "五福管家",
+  "short_name": "五福管家",
+  "description": "帮普通老百姓把每一分钱都安排好的记账提醒工具",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1a237e",
+  "theme_color": "#1a237e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

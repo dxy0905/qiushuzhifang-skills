@@ -111,7 +111,7 @@
 <!-- 2.同意 -->
 <div class="agree-box" id="step2" style="display:none">
   <label><input type="checkbox" id="agreeCheck" onchange="if(this.checked)next(3)">
-  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常花销，剩余40%按比例转为短期不动产（孩子读书20%、养老钱8%、钱生钱12%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入钱生钱。以后每笔收入到账自动按比例分配。</span></label>
+  <span><b>我已阅读并同意</b>五福管家资金管理方案：卡内余额60%作为日常花销，剩余40%按比例转为短期不动产（孩子读书15%、养老钱10%、钱生钱15%）。看病救急¥169/年可选参加（惠民保+意外险），不选则自动转入钱生钱。以后每笔收入到账自动按比例分配。</span></label>
 </div>
 
 <!-- 3.首次余额 -->
@@ -164,9 +164,9 @@ function idBank(no){return BIN_DB[no.replace(/\s/g,'').slice(0,6)]||'其他银�
 // 四个账户（看病救急单独处理）
 const ACCOUNTS=[
   {key:'living',name:'日常花销',icon:'🏠',pct:60,color:'#fbbf24',type:'可支配',typeClass:'type-free',desc:'吃饭坐车交水电'},
-  {key:'edu',name:'孩子读书',icon:'🎓',pct:20,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
-  {key:'pension',name:'养老钱',icon:'👴',pct:8,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
-  {key:'invest',name:'钱生钱',icon:'📈',pct:12,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
+  {key:'edu',name:'孩子读书',icon:'🎓',pct:15,color:'#10b981',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·提前取损失利息'},
+  {key:'pension',name:'养老钱',icon:'👴',pct:10,color:'#8b5cf6',type:'短期不动产',typeClass:'type-lock',desc:'3-5年定期·提前取损失利息'},
+  {key:'invest',name:'钱生钱',icon:'📈',pct:15,color:'#f59e0b',type:'短期不动产',typeClass:'type-lock',desc:'5年定期·懂理财可改'}
 ];
 
 let st=JSON.parse(localStorage.getItem('wf_state')||'{"step":1,"card":"","bank":"","balance":0,"records":[],"ratios":{},"insure":true}');
@@ -244,7 +244,7 @@ function renderAccounts(){
     </div>
     <div class="adjust-row" style="display:flex;align-items:center;gap:4px;margin:2px 0">
       <label style="font-size:10px;color:#4b5563;min-width:44px">${a.icon}</label>
-      <input type="range" min="5" max="60" value="${p}" style="flex:1;height:3px" oninput="adjust('${a.key}',parseInt(this.value))">
+      <input type="range" min="5" max="15" value="${p}" style="flex:1;height:3px" oninput="adjust('${a.key}',parseInt(this.value))">
       <span style="font-size:11px;font-weight:600;min-width:24px;text-align:right">${p}%</span>
     </div>`;
   }).join('');

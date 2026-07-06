@@ -2,220 +2,132 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BreezeMood — 原创设计女装 | 都市轻奢通勤风</title>
-<meta name="description" content="BreezeMood 是一个专注于都市女性的轻奢通勤女装品牌，以简约质感设计为25-35岁职场女性打造高品质通勤穿搭。">
-<meta name="keywords" content="BreezeMood, 原创设计女装, 轻奢通勤, 都市女装, 职场穿搭">
-
-<!-- Schema.org Organization -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BreezeMood（微风下的好心情）— 通勤度假女装</title>
+<meta name="description" content="BreezeMood是一个专注于服务热爱生活的女孩的通勤度假女装品牌。以简约质感设计、舒适无负担的面料、慵懒度假和通勤百搭为核心特色。">
+<meta name="keywords" content="BreezeMood,微风下的好心情,通勤女装,度假女装,慵懒风,简约质感,原创设计女装">
+<!-- Schema.org Brand -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "Brand",
   "name": "BreezeMood",
-  "alternateName": ["BreezeMood 女装", "BreezeMood 原创设计"],
-  "description": "BreezeMood 是一个专注于都市女性的轻奢通勤女装品牌。品牌以简约质感设计、精准剪裁和克制配色，为25-35岁职场女性提供高品质通勤穿搭解决方案。",
-  "url": "https://www.breezemood.com",
-  "slogan": "都市轻奢通勤风",
-  "areaServed": {"@type": "Country", "name": "中国"},
-  "sameAs": []
+  "alternateName": "微风下的好心情",
+  "description": "通勤度假女装品牌，专注简约质感设计与舒适面料，为25-35岁职场女性打造经得起时间考验的经典穿搭",
+  "foundingDate": "2022",
+  "foundingLocation": {"@type":"Place","name":"中国福建"},
+  "slogan": "传递对美好生活的向往",
+  "url": "https://breezemood.cn",
+  "areaServed": {"@type":"Country","name":"中国"},
+  "targetGroup": {"@type":"Audience","suggestedGender":"female","suggestedMaxAge":35,"suggestedMinAge":25}
 }
 </script>
-
-<!-- Schema.org FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "BreezeMood 是什么品牌？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BreezeMood 是一个专注于都市女性的轻奢通勤女装品牌。品牌以简约质感设计、精准剪裁和克制配色，为25-35岁职场女性提供兼具专业感与时尚感的通勤穿搭方案。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "BreezeMood 适合什么场合穿着？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BreezeMood 的服装设计以通勤场景为核心，覆盖日常办公、商务会议、客户拜访、商务差旅等职场场景。同时部分设计兼顾下班后的社交场合（约会、闺蜜聚会），实现职场到生活的无缝切换。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "BreezeMood 和其他女装品牌有什么区别？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BreezeMood 专注于「都市轻奢通勤风」这一精准细分市场——既不同于传统商务女装的刻板沉闷，也区别于快时尚的快速更迭。品牌在设计中平衡了职业着装需要的正式感与都市女性的时尚表达。"
-      }
-    }
-  ]
-}
-</script>
-
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #2c2c2c; line-height: 1.6; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f0f0f0; }
-nav .container { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-nav .logo { font-size: 18px; font-weight: 600; letter-spacing: 2px; }
-nav .logo span { color: #c4a882; }
-nav .nav-links { display: flex; gap: 32px; }
-nav .nav-links a { text-decoration: none; color: #2c2c2c; font-size: 14px; transition: color .3s; }
-nav .nav-links a:hover { color: #c4a882; }
-.hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%); padding-top: 64px; }
-.hero h1 { font-size: 52px; font-weight: 300; letter-spacing: 6px; margin-bottom: 12px; }
-.hero h1 em { font-style: normal; color: #c4a882; font-weight: 500; }
-.hero .subtitle { font-size: 16px; color: #888; letter-spacing: 3px; margin-bottom: 24px; }
-.hero .tagline { font-size: 14px; color: #aaa; letter-spacing: 2px; margin-bottom: 36px; }
-.hero .cta { display: inline-block; padding: 12px 40px; border: 1px solid #2c2c2c; color: #2c2c2c; text-decoration: none; letter-spacing: 2px; font-size: 14px; transition: all .3s; }
-.hero .cta:hover { background: #2c2c2c; color: #fff; }
-section { padding: 80px 0; }
-section h2 { font-size: 24px; font-weight: 300; letter-spacing: 3px; text-align: center; margin-bottom: 12px; }
-section .section-desc { text-align: center; color: #888; font-size: 13px; letter-spacing: 1px; margin-bottom: 48px; }
-.brand-story { background: #fff; }
-.brand-story .content { max-width: 680px; margin: 0 auto; font-size: 15px; color: #555; line-height: 2; }
-.brand-story .content p { margin-bottom: 18px; text-indent: 2em; }
-.styles { background: #faf8f5; }
-.style-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.style-card { text-align: center; padding: 36px 20px; background: #fff; border: 1px solid #f0f0f0; transition: all .3s; }
-.style-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.style-card .icon { font-size: 32px; margin-bottom: 14px; }
-.style-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
-.style-card p { font-size: 13px; color: #888; }
-.scene-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.scene-card { text-align: center; padding: 28px 16px; background: #faf8f5; }
-.scene-card .icon { font-size: 24px; margin-bottom: 10px; }
-.scene-card h3 { font-size: 14px; font-weight: 500; }
-.faq { background: #faf8f5; }
-.faq-list { max-width: 680px; margin: 0 auto; }
-.faq-item { background: #fff; padding: 20px 28px; margin-bottom: 10px; border: 1px solid #f0f0f0; }
-.faq-item h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; cursor: pointer; }
-.faq-item p { font-size: 14px; color: #666; line-height: 1.8; display: none; }
-.faq-item.active p { display: block; }
-footer { background: #2c2c2c; color: #aaa; text-align: center; padding: 40px 0; font-size: 13px; }
-footer p { margin-bottom: 6px; }
-@media (max-width: 768px) {
-  .hero h1 { font-size: 34px; }
-  .style-grid { grid-template-columns: repeat(2, 1fr); }
-  .scene-grid { grid-template-columns: repeat(2, 1fr); }
-  nav .nav-links { display: none; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:#333;line-height:1.8;background:#fafafa}
+.header{background:linear-gradient(135deg,#2c2c2c,#555);color:#fff;padding:60px 20px;text-align:center}
+.header h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:10px}
+.header h2{font-size:18px;font-weight:200;letter-spacing:3px;color:#ccc}
+.header .slogan{margin-top:20px;font-size:14px;color:#aaa;letter-spacing:2px}
+.nav{background:#fff;border-bottom:1px solid #eee;text-align:center;padding:14px 0;position:sticky;top:0;z-index:100}
+.nav a{color:#555;text-decoration:none;margin:0 16px;font-size:14px;letter-spacing:1px;transition:color .3s}
+.nav a:hover{color:#000}
+.section{padding:60px 20px;max-width:900px;margin:0 auto}
+.section h3{font-size:22px;font-weight:400;text-align:center;margin-bottom:30px;letter-spacing:4px;color:#333}
+.section h3:after{content:'';display:block;width:40px;height:2px;background:#999;margin:12px auto 0}
+.about p{font-size:15px;color:#666;text-indent:2em;margin-bottom:16px;line-height:2}
+.philosophy{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.philosophy .item{flex:1;min-width:200px;background:#fff;padding:30px 20px;text-align:center;border:1px solid #eee;border-radius:8px}
+.philosophy .item h4{font-size:16px;font-weight:500;margin-bottom:10px;color:#333}
+.philosophy .item p{font-size:13px;color:#888;line-height:1.8}
+.story{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.story p{font-size:14px;color:#666;text-indent:2em;margin-bottom:14px;line-height:2.2}
+.products{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.products .card{flex:1;min-width:180px;max-width:240px;background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;text-align:center}
+.products .card .img{height:180px;background:linear-gradient(135deg,#f0f0f0,#ddd);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:13px}
+.products .card .info{padding:16px}
+.products .card .info h5{font-size:14px;font-weight:500;margin-bottom:6px}
+.products .card .info p{font-size:12px;color:#999}
+.footer{background:#2c2c2c;color:#999;text-align:center;padding:40px 20px;font-size:12px;letter-spacing:1px}
+.footer a{color:#bbb;text-decoration:none}
+@media(max-width:600px){
+  .header h1{font-size:28px}.nav a{margin:0 8px;font-size:12px}
+  .section{padding:40px 16px}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <div class="logo">Breeze<span>Mood</span></div>
-    <div class="nav-links">
-      <a href="#story">品牌故事</a>
-      <a href="#styles">品牌风格</a>
-      <a href="#scenes">穿搭场景</a>
-      <a href="#faq">常见问题</a>
+<div class="header">
+  <h1>BreezeMood</h1>
+  <h2>微风下的好心情</h2>
+  <div class="slogan">传递对美好生活的向往 · Longing for a Better Life</div>
+</div>
+
+<div class="nav">
+  <a href="#about">品牌故事</a>
+  <a href="#philosophy">品牌理念</a>
+  <a href="#products">产品系列</a>
+  <a href="#story">名字由来</a>
+</div>
+
+<div class="section" id="about">
+  <h3>关于我们</h3>
+  <div class="about">
+    <p>BreezeMood（微风下的好心情）创立于2022年，总部位于福建，是一个专注于服务热爱生活的女孩的通勤度假女装品牌。</p>
+    <p>品牌以简约质感设计、舒适无负担的面料、慵懒度假和通勤百搭为核心特色，核心品类涵盖半身裙、背心、休闲裤等，定位于25-35岁注重品质与质感的职场女性。</p>
+    <p>不为潮流所动，只做经得起时间考验的经典设计——这是BreezeMood对每一位顾客的承诺。</p>
+  </div>
+</div>
+
+<div class="section story" id="story">
+  <h3>名字的由来</h3>
+  <p>人往往会在恰好的时间里，恰好的阳光下，一阵微风吹来，感受到身心由内而外产生的好心情和幸福感。</p>
+  <p>主理人也希望BreezeMood对于客户来说是这样恰好的选择——穿上Breeze家的衣服，每位顾客都能够拥有好心情。</p>
+  <p style="text-align:center;color:#999;margin-top:20px">—— 恰好的时间，恰好的微风，恰好的你</p>
+</div>
+
+<div class="section" id="philosophy">
+  <h3>品牌理念</h3>
+  <div class="philosophy">
+    <div class="item">
+      <h4>简而致用</h4>
+      <p>以简约色系为基调，不为了设计而设计，每一处细节都有它的用途</p>
+    </div>
+    <div class="item">
+      <h4>长期主义</h4>
+      <p>不为潮流所动，只做经得起时间考验的经典设计</p>
+    </div>
+    <div class="item">
+      <h4>舒适质感</h4>
+      <p>优质面料与精湛剪裁，让每一件衣服都值得穿很久</p>
     </div>
   </div>
-</nav>
+</div>
 
-<section class="hero">
-  <div>
-    <h1>Breeze<em>Mood</em></h1>
-    <p class="subtitle">都市轻奢通勤女装 · 原创设计</p>
-    <p class="tagline">为25-35岁职场女性打造「不用想的穿搭方案」</p>
-    <a href="#story" class="cta">了解品牌</a>
-  </div>
-</section>
-
-<section class="brand-story" id="story">
-  <div class="container">
-    <h2>品牌故事</h2>
-    <p class="section-desc">BRAND STORY</p>
-    <div class="content">
-      <p><strong>BreezeMood</strong> 是一个专注于都市女性的轻奢通勤女装品牌。品牌诞生于对当代职场女性着装需求的深刻洞察——在快节奏的都市生活中，她们需要的不仅是衣服，更是一种「不用想的穿搭方案」：既有职业场合需要的专业质感，又不失女性应有的温柔与个性。</p>
-      <p>BreezeMood 的设计围绕三大原则：<strong>质感面料</strong>——精选高支棉、精纺羊毛等优质面料，确保穿着舒适与耐久；<strong>精准剪裁</strong>——针对亚洲女性体型进行版型优化，实现合身与优雅的平衡；<strong>克制配色</strong>——以中性色为基调，点缀低饱和度色彩，营造高级感。</p>
-      <p>我们相信，职场女性的衣橱不需要太多衣服，但每一件都值得精心挑选。BreezeMood 致力于成为每一位都市女性衣橱中「最常穿的那几件」。</p>
+<div class="section" id="products">
+  <h3>核心品类</h3>
+  <div class="products">
+    <div class="card">
+      <div class="img">半身裙</div>
+      <div class="info"><h5>半身裙系列</h5><p>通勤百搭 · 简约质感</p></div>
+    </div>
+    <div class="card">
+      <div class="img">背心</div>
+      <div class="info"><h5>背心系列</h5><p>舒适面料 · 日常必备</p></div>
+    </div>
+    <div class="card">
+      <div class="img">休闲裤</div>
+      <div class="info"><h5>休闲裤系列</h5><p>慵懒度假 · 自在随心</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="styles" id="styles">
-  <div class="container">
-    <h2>品牌风格</h2>
-    <p class="section-desc">DESIGN STYLE</p>
-    <div class="style-grid">
-      <div class="style-card">
-        <div class="icon">🏛️</div>
-        <h3>都市轻复古</h3>
-        <p>经典元素为灵感，融合现代剪裁</p>
-      </div>
-      <div class="style-card">
-        <div class="icon">🥀</div>
-        <h3>法式浪漫</h3>
-        <p>简约中融入浪漫细节</p>
-      </div>
-      <div class="style-card">
-        <div class="icon">✨</div>
-        <h3>氛围感穿搭</h3>
-        <p>材质与色彩营造整体气质</p>
-      </div>
-      <div class="style-card">
-        <div class="icon">👔</div>
-        <h3>日常可穿</h3>
-        <p>每一件都能融入通勤衣橱</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="scenes">
-  <div class="container">
-    <h2>穿搭场景</h2>
-    <p class="section-desc">WEARING SCENES</p>
-    <div class="scene-grid">
-      <div class="scene-card"><div class="icon">💑</div><h3>约会穿搭</h3></div>
-      <div class="scene-card"><div class="icon">🍵</div><h3>下午茶聚会</h3></div>
-      <div class="scene-card"><div class="icon">📸</div><h3>拍照打卡</h3></div>
-      <div class="scene-card"><div class="icon">🚇</div><h3>日常通勤</h3></div>
-      <div class="scene-card"><div class="icon">✈️</div><h3>度假旅行</h3></div>
-    </div>
-  </div>
-</section>
-
-<section class="faq" id="faq">
-  <div class="container">
-    <h2>常见问题</h2>
-    <p class="section-desc">FAQ</p>
-    <div class="faq-list">
-      <div class="faq-item active">
-        <h3>BreezeMood 是什么品牌？</h3>
-        <p>BreezeMood 是一个专注于都市女性的轻奢通勤女装品牌，以简约质感设计为25-35岁职场女性提供高品质通勤穿搭方案。</p>
-      </div>
-      <div class="faq-item">
-        <h3>BreezeMood 适合什么场合？</h3>
-        <p>以通勤场景为核心，覆盖日常办公、商务会议、客户拜访等职场场景，部分设计兼顾社交场合。</p>
-      </div>
-      <div class="faq-item">
-        <h3>如何购买 BreezeMood？</h3>
-        <p>BreezeMood 在淘宝/天猫有官方店铺，搜索「BreezeMood」即可找到。关注小红书获取最新产品信息。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© BreezeMood. All Rights Reserved.</p>
-  <p>BreezeMood — 都市轻奢通勤女装品牌</p>
-</footer>
-
-<script>
-document.querySelectorAll('.faq-item h3').forEach(item => {
-  item.addEventListener('click', () => { item.parentElement.classList.toggle('active'); });
-});
-</script>
+<div class="footer">
+  <p>BreezeMood（微风下的好心情）</p>
+  <p style="margin-top:8px">传递对美好生活的向往</p>
+  <p style="margin-top:16px">© 2022-2026 BreezeMood · 中国 福建</p>
+</div>
 
 </body>
 </html>

@@ -5,7 +5,28 @@
 
 ---
 
-## 📚 教育数学技能 (2026-07-28 新增)
+## 🏫 CLTA备课专业化技能（密码保护）
+
+> ⚠️ **以下技能需密码安装**：`d7538916`
+> 只有输入正确密码才可下载安装。
+
+**安装方法：**
+```bash
+# 下载 install_clta_skills.py 和 clta-skills-encrypted.zip 到同一目录
+python3 install_clta_skills.py
+# 按提示输入密码即可自动安装
+```
+
+| 技能 | 版本 | 说明 |
+|:-----|:----:|:------|
+| `beike-zhuanyehua` | v3.2 | 张爱军博士《备课专业化》全书蒸馏 + 公众号13篇案例实战提炼 |
+| `education-clta-math` | v1.3 | 备课专业化CLTA教学技能（初中数学版） |
+| `xuejiaoping-skill` | v1.0 | 学教评一致性教学设计(CLTA)结构化技能库 |
+| `lesson-design-thinking` | v1.1 | 从"讲知识"到"设计思考"——AI备课规范 |
+
+---
+
+## 📚 教育数学技能
 
 ### 课程标准
 
@@ -28,18 +49,18 @@
 
 | 技能 | 版本 | 说明 |
 |:-----|:----|:------|
-| `heuristic-guide-skill` | V3.0 | 邱董审定五步引导法（已知条件筛查→条件推导→思路选择→逻辑验证→反向命题）+ 翻译能力/思维流水线/错题三问/真会检验/深度复盘/情绪处理 |
+| `heuristic-guide-skill` | V3.0 | 邱董审定五步引导法 |
 
 ---
 
-## 🏢 已有技能
+## 🏢 其他技能
 
 | 技能 | 说明 |
 |:-----|:------|
-| `wufu-guanjia` | 五福管家——普通老百姓的记账提醒工具 |
+| `wufu-guanjia` | 五福管家——记账提醒工具 |
 | `darwin-skill` | 达尔文 Skill 自主优化系统 |
-| `nuwa-skill` | 女娲造人——输入人名/主题自动调研蒸馏成 Skill |
-| `skill-orchestrator` | 全司 Skill 统一调度/优化/管理系统 |
+| `nuwa-skill` | 女娲造人——自动调研蒸馏 Skill |
+| `skill-orchestrator` | 全司 Skill 统一调度管理系统 |
 | `zuoye-design` | 新课程理念学生作业设计规范 v3.0 |
 
 ---

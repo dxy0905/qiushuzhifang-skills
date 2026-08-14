@@ -63,6 +63,13 @@ python3 install_clta_skills.py
 | `skill-orchestrator` | 全司 Skill 统一调度管理系统 |
 | `zuoye-design` | 新课程理念学生作业设计规范 v3.2（含跨框架评审方法） |
 | `fenceng-zuoye` | 课堂练习分层设计 — 基础题·提升题·挑战题三层法（v1.2） |
+| `作业评分标准` | 近5年福建中考作图题评分标准（2021-2026实证蒸馏） |
+| `cuotiben` | 错题本工具包 — 录入/分类/诊断/复习/盲区分析/组卷打印 |
+| `error-analysis-yangzhi` | 错因分析 — 错因5分类法·练习课5类题设计法 |
+| `ocr-pipeline-math` | 数学作业OCR管道 — 版面分析+公式识别+错因诊断 |
+| `math-ocr-pipeline` | 数学OCR增强管道 — RapidOCR+LaTeX-OCR+MinerU多后端 |
+| `zheti-skill` | 折题技能包 — 拆题5法+反向折题4层 |
+| `fudao-skill` | 辅导技能包 — 数学解题五步法 |
 
 ---
 

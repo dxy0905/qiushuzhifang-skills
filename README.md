@@ -61,7 +61,8 @@ python3 install_clta_skills.py
 | `darwin-skill` | 达尔文 Skill 自主优化系统 |
 | `nuwa-skill` | 女娲造人——自动调研蒸馏 Skill |
 | `skill-orchestrator` | 全司 Skill 统一调度管理系统 |
-| `zuoye-design` | 新课程理念学生作业设计规范 v3.0 |
+| `zuoye-design` | 新课程理念学生作业设计规范 v3.2（含跨框架评审方法） |
+| `fenceng-zuoye` | 课堂练习分层设计 — 基础题·提升题·挑战题三层法（v1.2） |
 
 ---
 

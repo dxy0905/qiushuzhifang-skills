@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- background gradient 米白亚麻 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f2"/>
+      <stop offset="100%" stop-color="#efe9e0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c4a882"/>
+      <stop offset="100%" stop-color="#d8c4a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- 留白氛围:大圆 -->
+  <circle cx="980" cy="90" r="260" fill="#ffffff" opacity="0.35"/>
+  <circle cx="160" cy="620" r="220" fill="#e8dfd2" opacity="0.5"/>
+  <!-- 细线装饰 -->
+  <line x1="80" y1="140" x2="1120" y2="140" stroke="#c4a882" stroke-width="1" opacity="0.5"/>
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#c4a882" stroke-width="1" opacity="0.5"/>
+  <!-- 中文名 -->
+  <text x="600" y="210" text-anchor="middle" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="44" fill="#999" letter-spacing="22">微风下的好心情</text>
+  <!-- 主名 -->
+  <text x="600" y="340" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="130" fill="#2c2c2c" letter-spacing="6">Breeze<animate attributeName="opacity" values="1;1" dur="1s"/>Mood</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="130" fill="none" stroke="#c4a882" stroke-width="2" letter-spacing="6" opacity="0.0">BreezeMood</text>
+  <!-- slogan -->
+  <text x="600" y="430" text-anchor="middle" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="30" fill="#c4a882" letter-spacing="8">让每一天，都像一阵好风。</text>
+  <!-- 底部定位 -->
+  <text x="600" y="560" text-anchor="middle" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" fill="#aaa" letter-spacing="6">慵懒简约 · 通勤度假女装 · 创立于2022 · 中国福建</text>
+</svg>

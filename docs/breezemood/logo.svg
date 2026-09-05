@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#f8f6f2"/>
+  <!-- B monogram -->
+  <text x="256" y="230" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="170" fill="#c4a882" font-style="italic" font-weight="600">B</text>
+  <text x="256" y="330" text-anchor="middle" font-family="Arial, 'Helvetica Neue', sans-serif" font-size="52" fill="#2c2c2c" letter-spacing="10">BreezeMood</text>
+  <text x="256" y="380" text-anchor="middle" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="30" fill="#999" letter-spacing="14">微风下的好心情</text>
+</svg>
